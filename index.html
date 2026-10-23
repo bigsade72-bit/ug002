@@ -13,7 +13,7 @@ canvas{position:fixed;left:0;top:0;width:100%;height:100%;display:block;touch-ac
 <body>
 <canvas id="c" tabindex="-1"></canvas>
 <script>
-const SPRITES={"ship_pulse": {"svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"330\" height=\"530\" viewBox=\"0 60 330 530\"><defs>\n<linearGradient id=\"cMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#06122a\"/><stop offset=\"0.35\" stop-color=\"#2a6a9c\"/><stop offset=\"0.5\" stop-color=\"#9fe9ff\"/><stop offset=\"0.65\" stop-color=\"#2a6a9c\"/><stop offset=\"1\" stop-color=\"#06122a\"/></linearGradient>\n<linearGradient id=\"gMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a1203\"/><stop offset=\"0.35\" stop-color=\"#8a6212\"/><stop offset=\"0.5\" stop-color=\"#ffe9a8\"/><stop offset=\"0.65\" stop-color=\"#8a6212\"/><stop offset=\"1\" stop-color=\"#1a1203\"/></linearGradient>\n<linearGradient id=\"cWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#12335a\"/><stop offset=\"1\" stop-color=\"#050d1f\"/></linearGradient>\n<linearGradient id=\"gWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4a3408\"/><stop offset=\"1\" stop-color=\"#150e02\"/></linearGradient>\n<radialGradient id=\"orb\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.4\" stop-color=\"#ffe9a8\"/><stop offset=\"1\" stop-color=\"#ffcf33\" stop-opacity=\"0\"/></radialGradient>\n</defs><defs>\n<linearGradient id=\"mMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a0620\"/><stop offset=\"0.35\" stop-color=\"#6a1a66\"/><stop offset=\"0.5\" stop-color=\"#ff9df0\"/><stop offset=\"0.65\" stop-color=\"#6a1a66\"/><stop offset=\"1\" stop-color=\"#1a0620\"/></linearGradient>\n<linearGradient id=\"mDark\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a0d3a\"/><stop offset=\"1\" stop-color=\"#12051a\"/></linearGradient>\n<radialGradient id=\"bombG\" cx=\"0.4\" cy=\"0.35\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#8a6a7a\"/><stop offset=\"0.5\" stop-color=\"#2a1030\"/><stop offset=\"1\" stop-color=\"#0a0410\"/></radialGradient>\n<radialGradient id=\"eye\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.35\" stop-color=\"#ff9df0\"/><stop offset=\"1\" stop-color=\"#ff2bd6\" stop-opacity=\"0\"/></radialGradient>\n</defs><g style=\"filter:drop-shadow(0 0 8px #19f0ff)\" stroke-linejoin=\"round\">\n<ellipse cx=\"165\" cy=\"552\" rx=\"26\" ry=\"12\" fill=\"#19f0ff\" opacity=\"0.85\"/>\n<polygon points=\"165,330 322,540 240,520 165,566 90,520 8,540\" fill=\"url(#cWing)\" stroke=\"#19f0ff\" stroke-width=\"4\"/>\n<path d=\"M165 330 V566 M165 400 L96 515 M165 400 L234 515 M40 528 L165 440 L290 528\" stroke=\"#19f0ff\" stroke-width=\"2.5\" fill=\"none\" opacity=\"0.85\"/>\n<polygon points=\"8,540 40,500 52,534\" fill=\"#0e3a52\" stroke=\"#19f0ff\" stroke-width=\"2\"/><polygon points=\"322,540 290,500 278,534\" fill=\"#0e3a52\" stroke=\"#19f0ff\" stroke-width=\"2\"/>\n</g><g style=\"filter:drop-shadow(0 0 8px #19f0ff)\" stroke-linejoin=\"round\">\n<rect x=\"70\" y=\"250\" width=\"50\" height=\"230\" fill=\"url(#cMetal)\" stroke=\"#19f0ff\" stroke-width=\"3\"/>\n<rect x=\"210\" y=\"250\" width=\"50\" height=\"230\" fill=\"url(#cMetal)\" stroke=\"#19f0ff\" stroke-width=\"3\"/>\n<rect x=\"62\" y=\"300\" width=\"66\" height=\"14\" fill=\"#0e3a52\" stroke=\"#19f0ff\" stroke-width=\"2\"/><rect x=\"202\" y=\"300\" width=\"66\" height=\"14\" fill=\"#0e3a52\" stroke=\"#19f0ff\" stroke-width=\"2\"/>\n<rect x=\"62\" y=\"380\" width=\"66\" height=\"14\" fill=\"#0e3a52\" stroke=\"#19f0ff\" stroke-width=\"2\"/><rect x=\"202\" y=\"380\" width=\"66\" height=\"14\" fill=\"#0e3a52\" stroke=\"#19f0ff\" stroke-width=\"2\"/>\n<path d=\"M78 262 V470 M252 262 V470\" stroke=\"#fff\" stroke-width=\"2\" opacity=\"0.6\"/>\n<ellipse cx=\"95\" cy=\"250\" rx=\"25\" ry=\"8\" fill=\"#02121f\" stroke=\"#19f0ff\" stroke-width=\"3\"/><ellipse cx=\"235\" cy=\"250\" rx=\"25\" ry=\"8\" fill=\"#02121f\" stroke=\"#19f0ff\" stroke-width=\"3\"/>\n</g>\n<g fill=\"#fff\" style=\"filter:drop-shadow(0 0 14px #19f0ff)\"><circle cx=\"95\" cy=\"244\" r=\"9\"/><circle cx=\"235\" cy=\"244\" r=\"9\"/></g><g style=\"filter:drop-shadow(0 0 6px #19f0ff)\" stroke-linejoin=\"round\">\n<polygon points=\"115,470 215,470 232,520 98,520\" fill=\"#0a1c3d\" stroke=\"#19f0ff\" stroke-width=\"3\"/>\n<rect x=\"135\" y=\"482\" width=\"60\" height=\"30\" rx=\"6\" fill=\"#19f0ff\" fill-opacity=\"0.9\" stroke=\"#fff\" stroke-width=\"2\"/>\n<path d=\"M140 492 H190 M140 502 H190\" stroke=\"#050d1f\" stroke-width=\"3\"/></g></svg>", "w": 330, "h": 530, "ox": 0, "oy": 60}, "ship_lance": {"svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"330\" height=\"530\" viewBox=\"0 60 330 530\"><defs>\n<linearGradient id=\"cMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#06122a\"/><stop offset=\"0.35\" stop-color=\"#2a6a9c\"/><stop offset=\"0.5\" stop-color=\"#9fe9ff\"/><stop offset=\"0.65\" stop-color=\"#2a6a9c\"/><stop offset=\"1\" stop-color=\"#06122a\"/></linearGradient>\n<linearGradient id=\"gMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a1203\"/><stop offset=\"0.35\" stop-color=\"#8a6212\"/><stop offset=\"0.5\" stop-color=\"#ffe9a8\"/><stop offset=\"0.65\" stop-color=\"#8a6212\"/><stop offset=\"1\" stop-color=\"#1a1203\"/></linearGradient>\n<linearGradient id=\"cWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#12335a\"/><stop offset=\"1\" stop-color=\"#050d1f\"/></linearGradient>\n<linearGradient id=\"gWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4a3408\"/><stop offset=\"1\" stop-color=\"#150e02\"/></linearGradient>\n<radialGradient id=\"orb\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.4\" stop-color=\"#ffe9a8\"/><stop offset=\"1\" stop-color=\"#ffcf33\" stop-opacity=\"0\"/></radialGradient>\n</defs><defs>\n<linearGradient id=\"mMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a0620\"/><stop offset=\"0.35\" stop-color=\"#6a1a66\"/><stop offset=\"0.5\" stop-color=\"#ff9df0\"/><stop offset=\"0.65\" stop-color=\"#6a1a66\"/><stop offset=\"1\" stop-color=\"#1a0620\"/></linearGradient>\n<linearGradient id=\"mDark\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a0d3a\"/><stop offset=\"1\" stop-color=\"#12051a\"/></linearGradient>\n<radialGradient id=\"bombG\" cx=\"0.4\" cy=\"0.35\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#8a6a7a\"/><stop offset=\"0.5\" stop-color=\"#2a1030\"/><stop offset=\"1\" stop-color=\"#0a0410\"/></radialGradient>\n<radialGradient id=\"eye\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.35\" stop-color=\"#ff9df0\"/><stop offset=\"1\" stop-color=\"#ff2bd6\" stop-opacity=\"0\"/></radialGradient>\n</defs><g style=\"filter:drop-shadow(0 0 8px #19f0ff)\" stroke-linejoin=\"round\">\n<ellipse cx=\"165\" cy=\"552\" rx=\"26\" ry=\"12\" fill=\"#19f0ff\" opacity=\"0.85\"/>\n<polygon points=\"165,330 322,540 240,520 165,566 90,520 8,540\" fill=\"url(#cWing)\" stroke=\"#19f0ff\" stroke-width=\"4\"/>\n<path d=\"M165 330 V566 M165 400 L96 515 M165 400 L234 515 M40 528 L165 440 L290 528\" stroke=\"#19f0ff\" stroke-width=\"2.5\" fill=\"none\" opacity=\"0.85\"/>\n<polygon points=\"8,540 40,500 52,534\" fill=\"#0e3a52\" stroke=\"#19f0ff\" stroke-width=\"2\"/><polygon points=\"322,540 290,500 278,534\" fill=\"#0e3a52\" stroke=\"#19f0ff\" stroke-width=\"2\"/>\n</g><g style=\"filter:drop-shadow(0 0 8px #19f0ff)\" stroke-linejoin=\"round\">\n<polygon points=\"125,480 205,480 188,200 142,200\" fill=\"url(#cMetal)\" stroke=\"#19f0ff\" stroke-width=\"3\"/>\n<path d=\"M130 430 H200 M134 380 H196 M138 330 H192 M141 280 H189\" stroke=\"#19f0ff\" stroke-width=\"5\"/>\n<path d=\"M150 470 L156 210\" stroke=\"#fff\" stroke-width=\"2\" opacity=\"0.6\"/>\n<polygon points=\"142,200 188,200 165,150\" fill=\"#07142e\" stroke=\"#19f0ff\" stroke-width=\"3\"/>\n<circle cx=\"165\" cy=\"310\" r=\"16\" fill=\"#02121f\" stroke=\"#19f0ff\" stroke-width=\"4\"/><circle cx=\"165\" cy=\"310\" r=\"7\" fill=\"#fff\"/>\n</g>\n<circle cx=\"165\" cy=\"140\" r=\"14\" fill=\"#fff\" style=\"filter:drop-shadow(0 0 16px #fff)\"/><g style=\"filter:drop-shadow(0 0 6px #19f0ff)\" stroke-linejoin=\"round\">\n<polygon points=\"115,470 215,470 232,520 98,520\" fill=\"#0a1c3d\" stroke=\"#19f0ff\" stroke-width=\"3\"/>\n<rect x=\"135\" y=\"482\" width=\"60\" height=\"30\" rx=\"6\" fill=\"#19f0ff\" fill-opacity=\"0.9\" stroke=\"#fff\" stroke-width=\"2\"/>\n<path d=\"M140 492 H190 M140 502 H190\" stroke=\"#050d1f\" stroke-width=\"3\"/></g></svg>", "w": 330, "h": 530, "ox": 0, "oy": 60}, "ship_nova": {"svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"330\" height=\"530\" viewBox=\"0 60 330 530\"><defs>\n<linearGradient id=\"cMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#06122a\"/><stop offset=\"0.35\" stop-color=\"#2a6a9c\"/><stop offset=\"0.5\" stop-color=\"#9fe9ff\"/><stop offset=\"0.65\" stop-color=\"#2a6a9c\"/><stop offset=\"1\" stop-color=\"#06122a\"/></linearGradient>\n<linearGradient id=\"gMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a1203\"/><stop offset=\"0.35\" stop-color=\"#8a6212\"/><stop offset=\"0.5\" stop-color=\"#ffe9a8\"/><stop offset=\"0.65\" stop-color=\"#8a6212\"/><stop offset=\"1\" stop-color=\"#1a1203\"/></linearGradient>\n<linearGradient id=\"cWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#12335a\"/><stop offset=\"1\" stop-color=\"#050d1f\"/></linearGradient>\n<linearGradient id=\"gWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4a3408\"/><stop offset=\"1\" stop-color=\"#150e02\"/></linearGradient>\n<radialGradient id=\"orb\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.4\" stop-color=\"#ffe9a8\"/><stop offset=\"1\" stop-color=\"#ffcf33\" stop-opacity=\"0\"/></radialGradient>\n</defs><defs>\n<linearGradient id=\"mMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a0620\"/><stop offset=\"0.35\" stop-color=\"#6a1a66\"/><stop offset=\"0.5\" stop-color=\"#ff9df0\"/><stop offset=\"0.65\" stop-color=\"#6a1a66\"/><stop offset=\"1\" stop-color=\"#1a0620\"/></linearGradient>\n<linearGradient id=\"mDark\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a0d3a\"/><stop offset=\"1\" stop-color=\"#12051a\"/></linearGradient>\n<radialGradient id=\"bombG\" cx=\"0.4\" cy=\"0.35\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#8a6a7a\"/><stop offset=\"0.5\" stop-color=\"#2a1030\"/><stop offset=\"1\" stop-color=\"#0a0410\"/></radialGradient>\n<radialGradient id=\"eye\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.35\" stop-color=\"#ff9df0\"/><stop offset=\"1\" stop-color=\"#ff2bd6\" stop-opacity=\"0\"/></radialGradient>\n</defs><g style=\"filter:drop-shadow(0 0 8px #ffcf33)\" stroke-linejoin=\"round\">\n<ellipse cx=\"165\" cy=\"552\" rx=\"26\" ry=\"12\" fill=\"#ffcf33\" opacity=\"0.85\"/>\n<polygon points=\"165,330 322,540 240,520 165,566 90,520 8,540\" fill=\"url(#gWing)\" stroke=\"#ffcf33\" stroke-width=\"4\"/>\n<path d=\"M165 330 V566 M165 400 L96 515 M165 400 L234 515 M40 528 L165 440 L290 528\" stroke=\"#ffcf33\" stroke-width=\"2.5\" fill=\"none\" opacity=\"0.85\"/>\n<polygon points=\"8,540 40,500 52,534\" fill=\"#2a1d05\" stroke=\"#ffcf33\" stroke-width=\"2\"/><polygon points=\"322,540 290,500 278,534\" fill=\"#2a1d05\" stroke=\"#ffcf33\" stroke-width=\"2\"/>\n</g><g style=\"filter:drop-shadow(0 0 10px #ffcf33)\" stroke-linejoin=\"round\">\n<polygon points=\"95,480 235,480 250,260 80,260\" fill=\"url(#gMetal)\" stroke=\"#ffcf33\" stroke-width=\"3\"/>\n<path d=\"M88 430 H242 M85 370 H245 M82 310 H248\" stroke=\"#ffcf33\" stroke-width=\"5\"/>\n<path d=\"M112 470 L100 272\" stroke=\"#fff\" stroke-width=\"2\" opacity=\"0.7\"/>\n<ellipse cx=\"165\" cy=\"260\" rx=\"85\" ry=\"18\" fill=\"#150e02\" stroke=\"#ffcf33\" stroke-width=\"4\"/>\n<ellipse cx=\"165\" cy=\"260\" rx=\"60\" ry=\"11\" fill=\"#000\" stroke=\"#ffcf33\" stroke-width=\"2\"/>\n</g>\n<circle cx=\"165\" cy=\"200\" r=\"70\" fill=\"url(#orb)\"/>\n<g fill=\"none\" style=\"filter:drop-shadow(0 0 14px #ffcf33)\"><circle cx=\"165\" cy=\"200\" r=\"42\" stroke=\"#ffcf33\" stroke-width=\"6\"/><circle cx=\"165\" cy=\"200\" r=\"30\" stroke=\"#fff\" stroke-width=\"3\"/></g>\n<circle cx=\"165\" cy=\"200\" r=\"10\" fill=\"#fff\"/><g style=\"filter:drop-shadow(0 0 6px #ffcf33)\" stroke-linejoin=\"round\">\n<polygon points=\"115,470 215,470 232,520 98,520\" fill=\"#2a1d05\" stroke=\"#ffcf33\" stroke-width=\"3\"/>\n<rect x=\"135\" y=\"482\" width=\"60\" height=\"30\" rx=\"6\" fill=\"#ffcf33\" fill-opacity=\"0.9\" stroke=\"#fff\" stroke-width=\"2\"/>\n<path d=\"M140 492 H190 M140 502 H190\" stroke=\"#050d1f\" stroke-width=\"3\"/></g></svg>", "w": 330, "h": 530, "ox": 0, "oy": 60}, "barrier": {"svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"208\" height=\"88\" viewBox=\"-104 -44 208 88\"><defs>\n<linearGradient id=\"cMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#06122a\"/><stop offset=\"0.35\" stop-color=\"#2a6a9c\"/><stop offset=\"0.5\" stop-color=\"#9fe9ff\"/><stop offset=\"0.65\" stop-color=\"#2a6a9c\"/><stop offset=\"1\" stop-color=\"#06122a\"/></linearGradient>\n<linearGradient id=\"gMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a1203\"/><stop offset=\"0.35\" stop-color=\"#8a6212\"/><stop offset=\"0.5\" stop-color=\"#ffe9a8\"/><stop offset=\"0.65\" stop-color=\"#8a6212\"/><stop offset=\"1\" stop-color=\"#1a1203\"/></linearGradient>\n<linearGradient id=\"cWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#12335a\"/><stop offset=\"1\" stop-color=\"#050d1f\"/></linearGradient>\n<linearGradient id=\"gWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4a3408\"/><stop offset=\"1\" stop-color=\"#150e02\"/></linearGradient>\n<radialGradient id=\"orb\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.4\" stop-color=\"#ffe9a8\"/><stop offset=\"1\" stop-color=\"#ffcf33\" stop-opacity=\"0\"/></radialGradient>\n</defs><defs>\n<linearGradient id=\"mMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a0620\"/><stop offset=\"0.35\" stop-color=\"#6a1a66\"/><stop offset=\"0.5\" stop-color=\"#ff9df0\"/><stop offset=\"0.65\" stop-color=\"#6a1a66\"/><stop offset=\"1\" stop-color=\"#1a0620\"/></linearGradient>\n<linearGradient id=\"mDark\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a0d3a\"/><stop offset=\"1\" stop-color=\"#12051a\"/></linearGradient>\n<radialGradient id=\"bombG\" cx=\"0.4\" cy=\"0.35\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#8a6a7a\"/><stop offset=\"0.5\" stop-color=\"#2a1030\"/><stop offset=\"1\" stop-color=\"#0a0410\"/></radialGradient>\n<radialGradient id=\"eye\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.35\" stop-color=\"#ff9df0\"/><stop offset=\"1\" stop-color=\"#ff2bd6\" stop-opacity=\"0\"/></radialGradient>\n</defs><g style=\"filter:drop-shadow(0 0 7px #ff2bd6)\" stroke-linejoin=\"round\" stroke-linecap=\"round\">\n<rect x=\"-80\" y=\"-18\" width=\"160\" height=\"36\" fill=\"url(#mDark)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<path d=\"M-80 18 L-44 -18 M-52 18 L-16 -18 M-24 18 L12 -18 M4 18 L40 -18 M32 18 L68 -18 M60 18 L80 -4\" stroke=\"#ff2bd6\" stroke-width=\"2.5\" fill=\"none\" opacity=\"0.9\"/>\n<rect x=\"-92\" y=\"-30\" width=\"22\" height=\"60\" rx=\"4\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<rect x=\"70\" y=\"-30\" width=\"22\" height=\"60\" rx=\"4\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<circle cx=\"-81\" cy=\"-20\" r=\"4\" fill=\"#fff\"/><circle cx=\"81\" cy=\"-20\" r=\"4\" fill=\"#fff\"/><circle cx=\"-81\" cy=\"20\" r=\"4\" fill=\"#fff\"/><circle cx=\"81\" cy=\"20\" r=\"4\" fill=\"#fff\"/>\n<path d=\"M-70 0 H70\" stroke=\"#fff\" stroke-width=\"2\" opacity=\"0.5\"/></g></svg>", "w": 208, "h": 88, "ox": -104, "oy": -44}, "drone": {"svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"132\" height=\"132\" viewBox=\"-66 -72 132 132\"><defs>\n<linearGradient id=\"cMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#06122a\"/><stop offset=\"0.35\" stop-color=\"#2a6a9c\"/><stop offset=\"0.5\" stop-color=\"#9fe9ff\"/><stop offset=\"0.65\" stop-color=\"#2a6a9c\"/><stop offset=\"1\" stop-color=\"#06122a\"/></linearGradient>\n<linearGradient id=\"gMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a1203\"/><stop offset=\"0.35\" stop-color=\"#8a6212\"/><stop offset=\"0.5\" stop-color=\"#ffe9a8\"/><stop offset=\"0.65\" stop-color=\"#8a6212\"/><stop offset=\"1\" stop-color=\"#1a1203\"/></linearGradient>\n<linearGradient id=\"cWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#12335a\"/><stop offset=\"1\" stop-color=\"#050d1f\"/></linearGradient>\n<linearGradient id=\"gWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4a3408\"/><stop offset=\"1\" stop-color=\"#150e02\"/></linearGradient>\n<radialGradient id=\"orb\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.4\" stop-color=\"#ffe9a8\"/><stop offset=\"1\" stop-color=\"#ffcf33\" stop-opacity=\"0\"/></radialGradient>\n</defs><defs>\n<linearGradient id=\"mMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a0620\"/><stop offset=\"0.35\" stop-color=\"#6a1a66\"/><stop offset=\"0.5\" stop-color=\"#ff9df0\"/><stop offset=\"0.65\" stop-color=\"#6a1a66\"/><stop offset=\"1\" stop-color=\"#1a0620\"/></linearGradient>\n<linearGradient id=\"mDark\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a0d3a\"/><stop offset=\"1\" stop-color=\"#12051a\"/></linearGradient>\n<radialGradient id=\"bombG\" cx=\"0.4\" cy=\"0.35\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#8a6a7a\"/><stop offset=\"0.5\" stop-color=\"#2a1030\"/><stop offset=\"1\" stop-color=\"#0a0410\"/></radialGradient>\n<radialGradient id=\"eye\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.35\" stop-color=\"#ff9df0\"/><stop offset=\"1\" stop-color=\"#ff2bd6\" stop-opacity=\"0\"/></radialGradient>\n</defs><g style=\"filter:drop-shadow(0 0 7px #ff2bd6)\" stroke-linejoin=\"round\" stroke-linecap=\"round\">\n<polygon points=\"0,-50 18,-20 52,-36 38,10 54,40 20,30 0,52 -20,30 -54,40 -38,10 -52,-36 -18,-20\" fill=\"url(#mDark)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<path d=\"M0 -50 V52 M-18 -20 L-38 10 M18 -20 L38 10 M-20 30 L0 6 L20 30\" stroke=\"#ff2bd6\" stroke-width=\"2\" fill=\"none\" opacity=\"0.8\"/>\n<circle cx=\"0\" cy=\"0\" r=\"22\" fill=\"#12051a\" stroke=\"#ff2bd6\" stroke-width=\"4\"/>\n<circle cx=\"0\" cy=\"0\" r=\"30\" fill=\"url(#eye)\" opacity=\"0.7\" stroke=\"none\"/>\n<circle cx=\"0\" cy=\"0\" r=\"11\" fill=\"#fff\"/>\n<rect x=\"-6\" y=\"-60\" width=\"12\" height=\"14\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"2\"/>\n<circle cx=\"-46\" cy=\"-30\" r=\"4\" fill=\"#ffcf33\"/><circle cx=\"46\" cy=\"-30\" r=\"4\" fill=\"#ffcf33\"/></g></svg>", "w": 132, "h": 132, "ox": -66, "oy": -72}, "weaver": {"svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"252\" height=\"164\" viewBox=\"-126 -84 252 164\"><defs>\n<linearGradient id=\"cMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#06122a\"/><stop offset=\"0.35\" stop-color=\"#2a6a9c\"/><stop offset=\"0.5\" stop-color=\"#9fe9ff\"/><stop offset=\"0.65\" stop-color=\"#2a6a9c\"/><stop offset=\"1\" stop-color=\"#06122a\"/></linearGradient>\n<linearGradient id=\"gMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a1203\"/><stop offset=\"0.35\" stop-color=\"#8a6212\"/><stop offset=\"0.5\" stop-color=\"#ffe9a8\"/><stop offset=\"0.65\" stop-color=\"#8a6212\"/><stop offset=\"1\" stop-color=\"#1a1203\"/></linearGradient>\n<linearGradient id=\"cWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#12335a\"/><stop offset=\"1\" stop-color=\"#050d1f\"/></linearGradient>\n<linearGradient id=\"gWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4a3408\"/><stop offset=\"1\" stop-color=\"#150e02\"/></linearGradient>\n<radialGradient id=\"orb\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.4\" stop-color=\"#ffe9a8\"/><stop offset=\"1\" stop-color=\"#ffcf33\" stop-opacity=\"0\"/></radialGradient>\n</defs><defs>\n<linearGradient id=\"mMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a0620\"/><stop offset=\"0.35\" stop-color=\"#6a1a66\"/><stop offset=\"0.5\" stop-color=\"#ff9df0\"/><stop offset=\"0.65\" stop-color=\"#6a1a66\"/><stop offset=\"1\" stop-color=\"#1a0620\"/></linearGradient>\n<linearGradient id=\"mDark\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a0d3a\"/><stop offset=\"1\" stop-color=\"#12051a\"/></linearGradient>\n<radialGradient id=\"bombG\" cx=\"0.4\" cy=\"0.35\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#8a6a7a\"/><stop offset=\"0.5\" stop-color=\"#2a1030\"/><stop offset=\"1\" stop-color=\"#0a0410\"/></radialGradient>\n<radialGradient id=\"eye\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.35\" stop-color=\"#ff9df0\"/><stop offset=\"1\" stop-color=\"#ff2bd6\" stop-opacity=\"0\"/></radialGradient>\n</defs><g style=\"filter:drop-shadow(0 0 7px #ff2bd6)\" stroke-linejoin=\"round\" stroke-linecap=\"round\">\n<polygon points=\"-84,-50 -58,-8 -30,-24 -40,20 -18,44 0,70 18,44 40,20 30,-24 58,-8 84,-50 62,-52 40,-34 20,-52 0,-24 -20,-52 -40,-34 -62,-52\" fill=\"url(#mDark)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<polygon points=\"-84,-50 -118,-30 -70,2 -58,-8\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<polygon points=\"84,-50 118,-30 70,2 58,-8\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<path d=\"M-30 -24 L-18 44 M30 -24 L18 44 M-40 20 H40 M0 -24 V70\" stroke=\"#ff2bd6\" stroke-width=\"2\" fill=\"none\" opacity=\"0.85\"/>\n<polygon points=\"-26,-6 26,-6 18,16 -18,16\" fill=\"#12051a\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<path d=\"M-16 4 H16\" stroke=\"#fff\" stroke-width=\"5\"/><path d=\"M-16 4 H16\" stroke=\"#ff2bd6\" stroke-width=\"9\" opacity=\"0.5\"/>\n<polygon points=\"-12,44 -6,74 0,52\" fill=\"#ffcf33\" stroke=\"none\"/><polygon points=\"12,44 6,74 0,52\" fill=\"#ffcf33\" stroke=\"none\"/>\n<path d=\"M-110 -26 L-96 -8 M110 -26 L96 -8\" stroke=\"#fff\" stroke-width=\"3\"/></g></svg>", "w": 252, "h": 164, "ox": -126, "oy": -84}, "armor": {"svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"172\" height=\"116\" viewBox=\"-86 -62 172 116\"><defs>\n<linearGradient id=\"cMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#06122a\"/><stop offset=\"0.35\" stop-color=\"#2a6a9c\"/><stop offset=\"0.5\" stop-color=\"#9fe9ff\"/><stop offset=\"0.65\" stop-color=\"#2a6a9c\"/><stop offset=\"1\" stop-color=\"#06122a\"/></linearGradient>\n<linearGradient id=\"gMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a1203\"/><stop offset=\"0.35\" stop-color=\"#8a6212\"/><stop offset=\"0.5\" stop-color=\"#ffe9a8\"/><stop offset=\"0.65\" stop-color=\"#8a6212\"/><stop offset=\"1\" stop-color=\"#1a1203\"/></linearGradient>\n<linearGradient id=\"cWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#12335a\"/><stop offset=\"1\" stop-color=\"#050d1f\"/></linearGradient>\n<linearGradient id=\"gWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4a3408\"/><stop offset=\"1\" stop-color=\"#150e02\"/></linearGradient>\n<radialGradient id=\"orb\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.4\" stop-color=\"#ffe9a8\"/><stop offset=\"1\" stop-color=\"#ffcf33\" stop-opacity=\"0\"/></radialGradient>\n</defs><defs>\n<linearGradient id=\"mMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a0620\"/><stop offset=\"0.35\" stop-color=\"#6a1a66\"/><stop offset=\"0.5\" stop-color=\"#ff9df0\"/><stop offset=\"0.65\" stop-color=\"#6a1a66\"/><stop offset=\"1\" stop-color=\"#1a0620\"/></linearGradient>\n<linearGradient id=\"mDark\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a0d3a\"/><stop offset=\"1\" stop-color=\"#12051a\"/></linearGradient>\n<radialGradient id=\"bombG\" cx=\"0.4\" cy=\"0.35\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#8a6a7a\"/><stop offset=\"0.5\" stop-color=\"#2a1030\"/><stop offset=\"1\" stop-color=\"#0a0410\"/></radialGradient>\n<radialGradient id=\"eye\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.35\" stop-color=\"#ff9df0\"/><stop offset=\"1\" stop-color=\"#ff2bd6\" stop-opacity=\"0\"/></radialGradient>\n</defs><g style=\"filter:drop-shadow(0 0 7px #ff2bd6)\" stroke-linejoin=\"round\" stroke-linecap=\"round\">\n<polygon points=\"-60,-40 60,-40 76,-16 76,16 60,44 -60,44 -76,16 -76,-16\" fill=\"url(#mDark)\" stroke=\"#ff2bd6\" stroke-width=\"4\"/>\n<polygon points=\"-46,-28 46,-28 58,-10 58,10 46,32 -46,32 -58,10 -58,-10\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<path d=\"M-46 -28 L-30 32 M0 -28 V32 M46 -28 L30 32\" stroke=\"#ff2bd6\" stroke-width=\"2.5\" fill=\"none\"/>\n<rect x=\"-18\" y=\"-12\" width=\"36\" height=\"24\" rx=\"5\" fill=\"#12051a\" stroke=\"#ffcf33\" stroke-width=\"3\"/>\n<path d=\"M-10 0 H10\" stroke=\"#ffcf33\" stroke-width=\"4\"/>\n<circle cx=\"-66\" cy=\"-30\" r=\"4\" fill=\"#fff\"/><circle cx=\"66\" cy=\"-30\" r=\"4\" fill=\"#fff\"/><circle cx=\"-66\" cy=\"34\" r=\"4\" fill=\"#fff\"/><circle cx=\"66\" cy=\"34\" r=\"4\" fill=\"#fff\"/>\n<path d=\"M-30 -52 V-40 M30 -52 V-40\" stroke=\"#ffcf33\" stroke-width=\"5\"/></g></svg>", "w": 172, "h": 116, "ox": -86, "oy": -62}, "bomb": {"svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"132\" height=\"138\" viewBox=\"-66 -76 132 138\"><defs>\n<linearGradient id=\"cMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#06122a\"/><stop offset=\"0.35\" stop-color=\"#2a6a9c\"/><stop offset=\"0.5\" stop-color=\"#9fe9ff\"/><stop offset=\"0.65\" stop-color=\"#2a6a9c\"/><stop offset=\"1\" stop-color=\"#06122a\"/></linearGradient>\n<linearGradient id=\"gMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a1203\"/><stop offset=\"0.35\" stop-color=\"#8a6212\"/><stop offset=\"0.5\" stop-color=\"#ffe9a8\"/><stop offset=\"0.65\" stop-color=\"#8a6212\"/><stop offset=\"1\" stop-color=\"#1a1203\"/></linearGradient>\n<linearGradient id=\"cWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#12335a\"/><stop offset=\"1\" stop-color=\"#050d1f\"/></linearGradient>\n<linearGradient id=\"gWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4a3408\"/><stop offset=\"1\" stop-color=\"#150e02\"/></linearGradient>\n<radialGradient id=\"orb\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.4\" stop-color=\"#ffe9a8\"/><stop offset=\"1\" stop-color=\"#ffcf33\" stop-opacity=\"0\"/></radialGradient>\n</defs><defs>\n<linearGradient id=\"mMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a0620\"/><stop offset=\"0.35\" stop-color=\"#6a1a66\"/><stop offset=\"0.5\" stop-color=\"#ff9df0\"/><stop offset=\"0.65\" stop-color=\"#6a1a66\"/><stop offset=\"1\" stop-color=\"#1a0620\"/></linearGradient>\n<linearGradient id=\"mDark\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a0d3a\"/><stop offset=\"1\" stop-color=\"#12051a\"/></linearGradient>\n<radialGradient id=\"bombG\" cx=\"0.4\" cy=\"0.35\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#8a6a7a\"/><stop offset=\"0.5\" stop-color=\"#2a1030\"/><stop offset=\"1\" stop-color=\"#0a0410\"/></radialGradient>\n<radialGradient id=\"eye\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.35\" stop-color=\"#ff9df0\"/><stop offset=\"1\" stop-color=\"#ff2bd6\" stop-opacity=\"0\"/></radialGradient>\n</defs><g style=\"filter:drop-shadow(0 0 7px #ff2bd6)\" stroke-linejoin=\"round\" stroke-linecap=\"round\">\n<circle cx=\"0\" cy=\"6\" r=\"44\" fill=\"url(#bombG)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<path d=\"M-44 6 H44 M0 -38 V50 M-31 -25 Q0 6 31 -25 M-31 37 Q0 6 31 37\" stroke=\"#ff2bd6\" stroke-width=\"2\" fill=\"none\" opacity=\"0.7\"/>\n<rect x=\"-12\" y=\"-48\" width=\"24\" height=\"14\" rx=\"3\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<path d=\"M0 -48 Q10 -66 22 -62\" stroke=\"#ffcf33\" stroke-width=\"3\" fill=\"none\"/>\n<circle cx=\"24\" cy=\"-62\" r=\"7\" fill=\"#fff\" style=\"filter:drop-shadow(0 0 10px #ffcf33)\"/>\n<circle cx=\"0\" cy=\"6\" r=\"12\" fill=\"#ff2bd6\" opacity=\"0.9\"/><circle cx=\"0\" cy=\"6\" r=\"5\" fill=\"#fff\"/>\n<path d=\"M-60 6 H-50 M50 6 H60\" stroke=\"#ffcf33\" stroke-width=\"4\"/></g></svg>", "w": 132, "h": 138, "ox": -66, "oy": -76}, "boss": {"svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"372\" height=\"224\" viewBox=\"-186 -96 372 224\"><defs>\n<linearGradient id=\"cMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#06122a\"/><stop offset=\"0.35\" stop-color=\"#2a6a9c\"/><stop offset=\"0.5\" stop-color=\"#9fe9ff\"/><stop offset=\"0.65\" stop-color=\"#2a6a9c\"/><stop offset=\"1\" stop-color=\"#06122a\"/></linearGradient>\n<linearGradient id=\"gMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a1203\"/><stop offset=\"0.35\" stop-color=\"#8a6212\"/><stop offset=\"0.5\" stop-color=\"#ffe9a8\"/><stop offset=\"0.65\" stop-color=\"#8a6212\"/><stop offset=\"1\" stop-color=\"#1a1203\"/></linearGradient>\n<linearGradient id=\"cWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#12335a\"/><stop offset=\"1\" stop-color=\"#050d1f\"/></linearGradient>\n<linearGradient id=\"gWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4a3408\"/><stop offset=\"1\" stop-color=\"#150e02\"/></linearGradient>\n<radialGradient id=\"orb\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.4\" stop-color=\"#ffe9a8\"/><stop offset=\"1\" stop-color=\"#ffcf33\" stop-opacity=\"0\"/></radialGradient>\n</defs><defs>\n<linearGradient id=\"mMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a0620\"/><stop offset=\"0.35\" stop-color=\"#6a1a66\"/><stop offset=\"0.5\" stop-color=\"#ff9df0\"/><stop offset=\"0.65\" stop-color=\"#6a1a66\"/><stop offset=\"1\" stop-color=\"#1a0620\"/></linearGradient>\n<linearGradient id=\"mDark\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a0d3a\"/><stop offset=\"1\" stop-color=\"#12051a\"/></linearGradient>\n<radialGradient id=\"bombG\" cx=\"0.4\" cy=\"0.35\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#8a6a7a\"/><stop offset=\"0.5\" stop-color=\"#2a1030\"/><stop offset=\"1\" stop-color=\"#0a0410\"/></radialGradient>\n<radialGradient id=\"eye\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.35\" stop-color=\"#ff9df0\"/><stop offset=\"1\" stop-color=\"#ff2bd6\" stop-opacity=\"0\"/></radialGradient>\n</defs><g style=\"filter:drop-shadow(0 0 7px #ff2bd6)\" stroke-linejoin=\"round\" stroke-linecap=\"round\">\n<polygon points=\"-170,-20 -120,-70 -60,-84 0,-60 60,-84 120,-70 170,-20 150,40 90,60 40,100 0,120 -40,100 -90,60 -150,40\" fill=\"url(#mDark)\" stroke=\"#ff2bd6\" stroke-width=\"4\"/>\n<path d=\"M-120 -70 L-90 60 M120 -70 L90 60 M-60 -84 L-40 100 M60 -84 L40 100 M0 -60 V120 M-170 -20 H-90 M170 -20 H90\" stroke=\"#ff2bd6\" stroke-width=\"2.5\" fill=\"none\" opacity=\"0.8\"/>\n<polygon points=\"-62,-48 62,-48 78,0 40,62 0,86 -40,62 -78,0\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"4\"/>\n<path d=\"M-62 -48 L-30 40 M62 -48 L30 40 M-78 0 H78\" stroke=\"#ff2bd6\" stroke-width=\"2\" fill=\"none\"/>\n<circle cx=\"0\" cy=\"6\" r=\"34\" fill=\"#12051a\" stroke=\"#ffcf33\" stroke-width=\"5\"/>\n<circle cx=\"0\" cy=\"6\" r=\"50\" fill=\"url(#eye)\" opacity=\"0.8\" stroke=\"none\"/>\n<circle cx=\"0\" cy=\"6\" r=\"18\" fill=\"#fff\"/><circle cx=\"0\" cy=\"6\" r=\"8\" fill=\"#ff2bd6\"/>\n<rect x=\"-176\" y=\"-8\" width=\"30\" height=\"64\" rx=\"6\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/><rect x=\"146\" y=\"-8\" width=\"30\" height=\"64\" rx=\"6\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<circle cx=\"-161\" cy=\"60\" r=\"10\" fill=\"#fff\"/><circle cx=\"161\" cy=\"60\" r=\"10\" fill=\"#fff\"/>\n<circle cx=\"-110\" cy=\"-30\" r=\"12\" fill=\"#12051a\" stroke=\"#ffcf33\" stroke-width=\"3\"/><circle cx=\"110\" cy=\"-30\" r=\"12\" fill=\"#12051a\" stroke=\"#ffcf33\" stroke-width=\"3\"/>\n<circle cx=\"-110\" cy=\"-30\" r=\"4\" fill=\"#fff\"/><circle cx=\"110\" cy=\"-30\" r=\"4\" fill=\"#fff\"/></g></svg>", "w": 372, "h": 224, "ox": -186, "oy": -96}, "finalboss": {"svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"428\" height=\"392\" viewBox=\"-214 -182 428 392\"><defs>\n<linearGradient id=\"cMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#06122a\"/><stop offset=\"0.35\" stop-color=\"#2a6a9c\"/><stop offset=\"0.5\" stop-color=\"#9fe9ff\"/><stop offset=\"0.65\" stop-color=\"#2a6a9c\"/><stop offset=\"1\" stop-color=\"#06122a\"/></linearGradient>\n<linearGradient id=\"gMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a1203\"/><stop offset=\"0.35\" stop-color=\"#8a6212\"/><stop offset=\"0.5\" stop-color=\"#ffe9a8\"/><stop offset=\"0.65\" stop-color=\"#8a6212\"/><stop offset=\"1\" stop-color=\"#1a1203\"/></linearGradient>\n<linearGradient id=\"cWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#12335a\"/><stop offset=\"1\" stop-color=\"#050d1f\"/></linearGradient>\n<linearGradient id=\"gWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4a3408\"/><stop offset=\"1\" stop-color=\"#150e02\"/></linearGradient>\n<radialGradient id=\"orb\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.4\" stop-color=\"#ffe9a8\"/><stop offset=\"1\" stop-color=\"#ffcf33\" stop-opacity=\"0\"/></radialGradient>\n</defs><defs>\n<linearGradient id=\"mMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a0620\"/><stop offset=\"0.35\" stop-color=\"#6a1a66\"/><stop offset=\"0.5\" stop-color=\"#ff9df0\"/><stop offset=\"0.65\" stop-color=\"#6a1a66\"/><stop offset=\"1\" stop-color=\"#1a0620\"/></linearGradient>\n<linearGradient id=\"mDark\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a0d3a\"/><stop offset=\"1\" stop-color=\"#12051a\"/></linearGradient>\n<radialGradient id=\"bombG\" cx=\"0.4\" cy=\"0.35\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#8a6a7a\"/><stop offset=\"0.5\" stop-color=\"#2a1030\"/><stop offset=\"1\" stop-color=\"#0a0410\"/></radialGradient>\n<radialGradient id=\"eye\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.35\" stop-color=\"#ff9df0\"/><stop offset=\"1\" stop-color=\"#ff2bd6\" stop-opacity=\"0\"/></radialGradient>\n</defs><g style=\"filter:drop-shadow(0 0 7px #ff2bd6)\" stroke-linejoin=\"round\" stroke-linecap=\"round\">\n<polygon points=\"-190,-60 -140,-120 -70,-140 0,-110 70,-140 140,-120 190,-60 200,40 170,100 110,130 60,170 0,190 -60,170 -110,130 -170,100 -200,40\" fill=\"url(#mDark)\" stroke=\"#ff2bd6\" stroke-width=\"5\"/>\n<polygon points=\"-160,-60 -120,-104 -70,-118 -40,-84 -70,-30 -130,0\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"4\"/>\n<polygon points=\"160,-60 120,-104 70,-118 40,-84 70,-30 130,0\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"4\"/>\n<polygon points=\"-150,20 -90,30 -70,90 -110,110 -160,80\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"4\"/>\n<polygon points=\"150,20 90,30 70,90 110,110 160,80\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"4\"/>\n<path d=\"M-200 40 H-110 M200 40 H110 M-60 170 L-40 60 M60 170 L40 60 M0 -110 V-60\" stroke=\"#ff2bd6\" stroke-width=\"3\" fill=\"none\" opacity=\"0.85\"/>\n<polygon points=\"-84,-60 84,-60 100,0 70,80 0,120 -70,80 -100,0\" fill=\"#12051a\" stroke=\"#ff2bd6\" stroke-width=\"5\"/>\n<polygon points=\"-70,-44 70,-44 82,0 56,64 0,96 -56,64 -82,0\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<path d=\"M-70 -44 L-40 50 M70 -44 L40 50 M-82 0 H82\" stroke=\"#ff2bd6\" stroke-width=\"2.5\" fill=\"none\"/>\n<circle cx=\"0\" cy=\"8\" r=\"52\" fill=\"#12051a\" stroke=\"#ffcf33\" stroke-width=\"7\"/>\n<circle cx=\"0\" cy=\"8\" r=\"76\" fill=\"url(#eye)\" opacity=\"0.85\" stroke=\"none\"/>\n<path d=\"M-52 8 H52 M0 -44 V60 M-37 -29 L37 45 M37 -29 L-37 45\" stroke=\"#ffcf33\" stroke-width=\"3\" opacity=\"0.8\"/>\n<circle cx=\"0\" cy=\"8\" r=\"26\" fill=\"#fff\"/><circle cx=\"0\" cy=\"8\" r=\"12\" fill=\"#ff2bd6\"/>\n<rect x=\"-206\" y=\"-20\" width=\"40\" height=\"90\" rx=\"8\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"4\"/><rect x=\"166\" y=\"-20\" width=\"40\" height=\"90\" rx=\"8\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"4\"/>\n<circle cx=\"-186\" cy=\"80\" r=\"14\" fill=\"#fff\"/><circle cx=\"186\" cy=\"80\" r=\"14\" fill=\"#fff\"/>\n<rect x=\"-128\" y=\"130\" width=\"34\" height=\"60\" rx=\"6\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"4\"/><rect x=\"94\" y=\"130\" width=\"34\" height=\"60\" rx=\"6\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"4\"/>\n<circle cx=\"-111\" cy=\"194\" r=\"10\" fill=\"#fff\"/><circle cx=\"111\" cy=\"194\" r=\"10\" fill=\"#fff\"/>\n<circle cx=\"-110\" cy=\"-70\" r=\"16\" fill=\"#12051a\" stroke=\"#ffcf33\" stroke-width=\"4\"/><circle cx=\"110\" cy=\"-70\" r=\"16\" fill=\"#12051a\" stroke=\"#ffcf33\" stroke-width=\"4\"/>\n<circle cx=\"-110\" cy=\"-70\" r=\"6\" fill=\"#fff\"/><circle cx=\"110\" cy=\"-70\" r=\"6\" fill=\"#fff\"/>\n<path d=\"M-60 -140 V-170 M-20 -112 V-150 M20 -112 V-150 M60 -140 V-170\" stroke=\"#ffcf33\" stroke-width=\"6\"/></g></svg>", "w": 428, "h": 392, "ox": -214, "oy": -182}};
+const SPRITES={"ally": {"svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"124\" height=\"112\" viewBox=\"-62 -56 124 112\"><defs>\n<linearGradient id=\"cMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#06122a\"/><stop offset=\"0.35\" stop-color=\"#2a6a9c\"/><stop offset=\"0.5\" stop-color=\"#9fe9ff\"/><stop offset=\"0.65\" stop-color=\"#2a6a9c\"/><stop offset=\"1\" stop-color=\"#06122a\"/></linearGradient>\n<linearGradient id=\"gMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a1203\"/><stop offset=\"0.35\" stop-color=\"#8a6212\"/><stop offset=\"0.5\" stop-color=\"#ffe9a8\"/><stop offset=\"0.65\" stop-color=\"#8a6212\"/><stop offset=\"1\" stop-color=\"#1a1203\"/></linearGradient>\n<linearGradient id=\"cWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#12335a\"/><stop offset=\"1\" stop-color=\"#050d1f\"/></linearGradient>\n<linearGradient id=\"gWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4a3408\"/><stop offset=\"1\" stop-color=\"#150e02\"/></linearGradient>\n<radialGradient id=\"orb\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.4\" stop-color=\"#ffe9a8\"/><stop offset=\"1\" stop-color=\"#ffcf33\" stop-opacity=\"0\"/></radialGradient>\n</defs><defs>\n<linearGradient id=\"mMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a0620\"/><stop offset=\"0.35\" stop-color=\"#6a1a66\"/><stop offset=\"0.5\" stop-color=\"#ff9df0\"/><stop offset=\"0.65\" stop-color=\"#6a1a66\"/><stop offset=\"1\" stop-color=\"#1a0620\"/></linearGradient>\n<linearGradient id=\"mDark\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a0d3a\"/><stop offset=\"1\" stop-color=\"#12051a\"/></linearGradient>\n<radialGradient id=\"bombG\" cx=\"0.4\" cy=\"0.35\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#8a6a7a\"/><stop offset=\"0.5\" stop-color=\"#2a1030\"/><stop offset=\"1\" stop-color=\"#0a0410\"/></radialGradient>\n<radialGradient id=\"eye\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.35\" stop-color=\"#ff9df0\"/><stop offset=\"1\" stop-color=\"#ff2bd6\" stop-opacity=\"0\"/></radialGradient>\n</defs><defs><linearGradient id=\"alB\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#8fc0ff\"/><stop offset=\"1\" stop-color=\"#1d46b8\"/></linearGradient><linearGradient id=\"alP\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4f86ff\"/><stop offset=\"1\" stop-color=\"#14307f\"/></linearGradient></defs><g stroke=\"#bcd2ff\" stroke-width=\"2.5\" stroke-linejoin=\"round\"><rect x=\"-56\" y=\"-14\" width=\"26\" height=\"38\" rx=\"10\" fill=\"url(#alP)\"/><rect x=\"30\" y=\"-14\" width=\"26\" height=\"38\" rx=\"10\" fill=\"url(#alP)\"/><rect x=\"-34\" y=\"-46\" width=\"68\" height=\"84\" rx=\"22\" fill=\"url(#alB)\"/></g><rect x=\"-18\" y=\"-36\" width=\"36\" height=\"22\" rx=\"10\" fill=\"#0b1b4d\" stroke=\"#19f0ff\" stroke-width=\"2\"/><rect x=\"-22\" y=\"2\" width=\"44\" height=\"6\" rx=\"3\" fill=\"#0b1b4d\" opacity=\".6\"/><circle cx=\"-43\" cy=\"30\" r=\"5\" fill=\"#19f0ff\"/><circle cx=\"43\" cy=\"30\" r=\"5\" fill=\"#19f0ff\"/><circle cx=\"-10\" cy=\"32\" r=\"4\" fill=\"#fff\"/><circle cx=\"10\" cy=\"32\" r=\"4\" fill=\"#fff\"/></svg>", "w": 124, "h": 112, "ox": -62, "oy": -56}, "ship_pulse": {"svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"330\" height=\"530\" viewBox=\"0 60 330 530\"><defs>\n<linearGradient id=\"cMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#06122a\"/><stop offset=\"0.35\" stop-color=\"#2a6a9c\"/><stop offset=\"0.5\" stop-color=\"#9fe9ff\"/><stop offset=\"0.65\" stop-color=\"#2a6a9c\"/><stop offset=\"1\" stop-color=\"#06122a\"/></linearGradient>\n<linearGradient id=\"gMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a1203\"/><stop offset=\"0.35\" stop-color=\"#8a6212\"/><stop offset=\"0.5\" stop-color=\"#ffe9a8\"/><stop offset=\"0.65\" stop-color=\"#8a6212\"/><stop offset=\"1\" stop-color=\"#1a1203\"/></linearGradient>\n<linearGradient id=\"cWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#12335a\"/><stop offset=\"1\" stop-color=\"#050d1f\"/></linearGradient>\n<linearGradient id=\"gWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4a3408\"/><stop offset=\"1\" stop-color=\"#150e02\"/></linearGradient>\n<radialGradient id=\"orb\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.4\" stop-color=\"#ffe9a8\"/><stop offset=\"1\" stop-color=\"#ffcf33\" stop-opacity=\"0\"/></radialGradient>\n</defs><defs>\n<linearGradient id=\"mMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a0620\"/><stop offset=\"0.35\" stop-color=\"#6a1a66\"/><stop offset=\"0.5\" stop-color=\"#ff9df0\"/><stop offset=\"0.65\" stop-color=\"#6a1a66\"/><stop offset=\"1\" stop-color=\"#1a0620\"/></linearGradient>\n<linearGradient id=\"mDark\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a0d3a\"/><stop offset=\"1\" stop-color=\"#12051a\"/></linearGradient>\n<radialGradient id=\"bombG\" cx=\"0.4\" cy=\"0.35\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#8a6a7a\"/><stop offset=\"0.5\" stop-color=\"#2a1030\"/><stop offset=\"1\" stop-color=\"#0a0410\"/></radialGradient>\n<radialGradient id=\"eye\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.35\" stop-color=\"#ff9df0\"/><stop offset=\"1\" stop-color=\"#ff2bd6\" stop-opacity=\"0\"/></radialGradient>\n</defs><g style=\"filter:drop-shadow(0 0 8px #19f0ff)\" stroke-linejoin=\"round\">\n<ellipse cx=\"165\" cy=\"552\" rx=\"26\" ry=\"12\" fill=\"#19f0ff\" opacity=\"0.85\"/>\n<polygon points=\"165,330 322,540 240,520 165,566 90,520 8,540\" fill=\"url(#cWing)\" stroke=\"#19f0ff\" stroke-width=\"4\"/>\n<path d=\"M165 330 V566 M165 400 L96 515 M165 400 L234 515 M40 528 L165 440 L290 528\" stroke=\"#19f0ff\" stroke-width=\"2.5\" fill=\"none\" opacity=\"0.85\"/>\n<polygon points=\"8,540 40,500 52,534\" fill=\"#0e3a52\" stroke=\"#19f0ff\" stroke-width=\"2\"/><polygon points=\"322,540 290,500 278,534\" fill=\"#0e3a52\" stroke=\"#19f0ff\" stroke-width=\"2\"/>\n</g><g style=\"filter:drop-shadow(0 0 8px #19f0ff)\" stroke-linejoin=\"round\">\n<rect x=\"70\" y=\"250\" width=\"50\" height=\"230\" fill=\"url(#cMetal)\" stroke=\"#19f0ff\" stroke-width=\"3\"/>\n<rect x=\"210\" y=\"250\" width=\"50\" height=\"230\" fill=\"url(#cMetal)\" stroke=\"#19f0ff\" stroke-width=\"3\"/>\n<rect x=\"62\" y=\"300\" width=\"66\" height=\"14\" fill=\"#0e3a52\" stroke=\"#19f0ff\" stroke-width=\"2\"/><rect x=\"202\" y=\"300\" width=\"66\" height=\"14\" fill=\"#0e3a52\" stroke=\"#19f0ff\" stroke-width=\"2\"/>\n<rect x=\"62\" y=\"380\" width=\"66\" height=\"14\" fill=\"#0e3a52\" stroke=\"#19f0ff\" stroke-width=\"2\"/><rect x=\"202\" y=\"380\" width=\"66\" height=\"14\" fill=\"#0e3a52\" stroke=\"#19f0ff\" stroke-width=\"2\"/>\n<path d=\"M78 262 V470 M252 262 V470\" stroke=\"#fff\" stroke-width=\"2\" opacity=\"0.6\"/>\n<ellipse cx=\"95\" cy=\"250\" rx=\"25\" ry=\"8\" fill=\"#02121f\" stroke=\"#19f0ff\" stroke-width=\"3\"/><ellipse cx=\"235\" cy=\"250\" rx=\"25\" ry=\"8\" fill=\"#02121f\" stroke=\"#19f0ff\" stroke-width=\"3\"/>\n</g>\n<g fill=\"#fff\" style=\"filter:drop-shadow(0 0 14px #19f0ff)\"><circle cx=\"95\" cy=\"244\" r=\"9\"/><circle cx=\"235\" cy=\"244\" r=\"9\"/></g><g style=\"filter:drop-shadow(0 0 6px #19f0ff)\" stroke-linejoin=\"round\">\n<polygon points=\"115,470 215,470 232,520 98,520\" fill=\"#0a1c3d\" stroke=\"#19f0ff\" stroke-width=\"3\"/>\n<rect x=\"135\" y=\"482\" width=\"60\" height=\"30\" rx=\"6\" fill=\"#19f0ff\" fill-opacity=\"0.9\" stroke=\"#fff\" stroke-width=\"2\"/>\n<path d=\"M140 492 H190 M140 502 H190\" stroke=\"#050d1f\" stroke-width=\"3\"/></g></svg>", "w": 330, "h": 530, "ox": 0, "oy": 60}, "ship_lance": {"svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"330\" height=\"530\" viewBox=\"0 60 330 530\"><defs>\n<linearGradient id=\"cMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#06122a\"/><stop offset=\"0.35\" stop-color=\"#2a6a9c\"/><stop offset=\"0.5\" stop-color=\"#9fe9ff\"/><stop offset=\"0.65\" stop-color=\"#2a6a9c\"/><stop offset=\"1\" stop-color=\"#06122a\"/></linearGradient>\n<linearGradient id=\"gMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a1203\"/><stop offset=\"0.35\" stop-color=\"#8a6212\"/><stop offset=\"0.5\" stop-color=\"#ffe9a8\"/><stop offset=\"0.65\" stop-color=\"#8a6212\"/><stop offset=\"1\" stop-color=\"#1a1203\"/></linearGradient>\n<linearGradient id=\"cWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#12335a\"/><stop offset=\"1\" stop-color=\"#050d1f\"/></linearGradient>\n<linearGradient id=\"gWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4a3408\"/><stop offset=\"1\" stop-color=\"#150e02\"/></linearGradient>\n<radialGradient id=\"orb\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.4\" stop-color=\"#ffe9a8\"/><stop offset=\"1\" stop-color=\"#ffcf33\" stop-opacity=\"0\"/></radialGradient>\n</defs><defs>\n<linearGradient id=\"mMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a0620\"/><stop offset=\"0.35\" stop-color=\"#6a1a66\"/><stop offset=\"0.5\" stop-color=\"#ff9df0\"/><stop offset=\"0.65\" stop-color=\"#6a1a66\"/><stop offset=\"1\" stop-color=\"#1a0620\"/></linearGradient>\n<linearGradient id=\"mDark\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a0d3a\"/><stop offset=\"1\" stop-color=\"#12051a\"/></linearGradient>\n<radialGradient id=\"bombG\" cx=\"0.4\" cy=\"0.35\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#8a6a7a\"/><stop offset=\"0.5\" stop-color=\"#2a1030\"/><stop offset=\"1\" stop-color=\"#0a0410\"/></radialGradient>\n<radialGradient id=\"eye\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.35\" stop-color=\"#ff9df0\"/><stop offset=\"1\" stop-color=\"#ff2bd6\" stop-opacity=\"0\"/></radialGradient>\n</defs><g style=\"filter:drop-shadow(0 0 8px #19f0ff)\" stroke-linejoin=\"round\">\n<ellipse cx=\"165\" cy=\"552\" rx=\"26\" ry=\"12\" fill=\"#19f0ff\" opacity=\"0.85\"/>\n<polygon points=\"165,330 322,540 240,520 165,566 90,520 8,540\" fill=\"url(#cWing)\" stroke=\"#19f0ff\" stroke-width=\"4\"/>\n<path d=\"M165 330 V566 M165 400 L96 515 M165 400 L234 515 M40 528 L165 440 L290 528\" stroke=\"#19f0ff\" stroke-width=\"2.5\" fill=\"none\" opacity=\"0.85\"/>\n<polygon points=\"8,540 40,500 52,534\" fill=\"#0e3a52\" stroke=\"#19f0ff\" stroke-width=\"2\"/><polygon points=\"322,540 290,500 278,534\" fill=\"#0e3a52\" stroke=\"#19f0ff\" stroke-width=\"2\"/>\n</g><g style=\"filter:drop-shadow(0 0 8px #19f0ff)\" stroke-linejoin=\"round\">\n<polygon points=\"125,480 205,480 188,200 142,200\" fill=\"url(#cMetal)\" stroke=\"#19f0ff\" stroke-width=\"3\"/>\n<path d=\"M130 430 H200 M134 380 H196 M138 330 H192 M141 280 H189\" stroke=\"#19f0ff\" stroke-width=\"5\"/>\n<path d=\"M150 470 L156 210\" stroke=\"#fff\" stroke-width=\"2\" opacity=\"0.6\"/>\n<polygon points=\"142,200 188,200 165,150\" fill=\"#07142e\" stroke=\"#19f0ff\" stroke-width=\"3\"/>\n<circle cx=\"165\" cy=\"310\" r=\"16\" fill=\"#02121f\" stroke=\"#19f0ff\" stroke-width=\"4\"/><circle cx=\"165\" cy=\"310\" r=\"7\" fill=\"#fff\"/>\n</g>\n<circle cx=\"165\" cy=\"140\" r=\"14\" fill=\"#fff\" style=\"filter:drop-shadow(0 0 16px #fff)\"/><g style=\"filter:drop-shadow(0 0 6px #19f0ff)\" stroke-linejoin=\"round\">\n<polygon points=\"115,470 215,470 232,520 98,520\" fill=\"#0a1c3d\" stroke=\"#19f0ff\" stroke-width=\"3\"/>\n<rect x=\"135\" y=\"482\" width=\"60\" height=\"30\" rx=\"6\" fill=\"#19f0ff\" fill-opacity=\"0.9\" stroke=\"#fff\" stroke-width=\"2\"/>\n<path d=\"M140 492 H190 M140 502 H190\" stroke=\"#050d1f\" stroke-width=\"3\"/></g></svg>", "w": 330, "h": 530, "ox": 0, "oy": 60}, "ship_nova": {"svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"330\" height=\"530\" viewBox=\"0 60 330 530\"><defs>\n<linearGradient id=\"cMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#06122a\"/><stop offset=\"0.35\" stop-color=\"#2a6a9c\"/><stop offset=\"0.5\" stop-color=\"#9fe9ff\"/><stop offset=\"0.65\" stop-color=\"#2a6a9c\"/><stop offset=\"1\" stop-color=\"#06122a\"/></linearGradient>\n<linearGradient id=\"gMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a1203\"/><stop offset=\"0.35\" stop-color=\"#8a6212\"/><stop offset=\"0.5\" stop-color=\"#ffe9a8\"/><stop offset=\"0.65\" stop-color=\"#8a6212\"/><stop offset=\"1\" stop-color=\"#1a1203\"/></linearGradient>\n<linearGradient id=\"cWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#12335a\"/><stop offset=\"1\" stop-color=\"#050d1f\"/></linearGradient>\n<linearGradient id=\"gWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4a3408\"/><stop offset=\"1\" stop-color=\"#150e02\"/></linearGradient>\n<radialGradient id=\"orb\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.4\" stop-color=\"#ffe9a8\"/><stop offset=\"1\" stop-color=\"#ffcf33\" stop-opacity=\"0\"/></radialGradient>\n</defs><defs>\n<linearGradient id=\"mMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a0620\"/><stop offset=\"0.35\" stop-color=\"#6a1a66\"/><stop offset=\"0.5\" stop-color=\"#ff9df0\"/><stop offset=\"0.65\" stop-color=\"#6a1a66\"/><stop offset=\"1\" stop-color=\"#1a0620\"/></linearGradient>\n<linearGradient id=\"mDark\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a0d3a\"/><stop offset=\"1\" stop-color=\"#12051a\"/></linearGradient>\n<radialGradient id=\"bombG\" cx=\"0.4\" cy=\"0.35\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#8a6a7a\"/><stop offset=\"0.5\" stop-color=\"#2a1030\"/><stop offset=\"1\" stop-color=\"#0a0410\"/></radialGradient>\n<radialGradient id=\"eye\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.35\" stop-color=\"#ff9df0\"/><stop offset=\"1\" stop-color=\"#ff2bd6\" stop-opacity=\"0\"/></radialGradient>\n</defs><g style=\"filter:drop-shadow(0 0 8px #ffcf33)\" stroke-linejoin=\"round\">\n<ellipse cx=\"165\" cy=\"552\" rx=\"26\" ry=\"12\" fill=\"#ffcf33\" opacity=\"0.85\"/>\n<polygon points=\"165,330 322,540 240,520 165,566 90,520 8,540\" fill=\"url(#gWing)\" stroke=\"#ffcf33\" stroke-width=\"4\"/>\n<path d=\"M165 330 V566 M165 400 L96 515 M165 400 L234 515 M40 528 L165 440 L290 528\" stroke=\"#ffcf33\" stroke-width=\"2.5\" fill=\"none\" opacity=\"0.85\"/>\n<polygon points=\"8,540 40,500 52,534\" fill=\"#2a1d05\" stroke=\"#ffcf33\" stroke-width=\"2\"/><polygon points=\"322,540 290,500 278,534\" fill=\"#2a1d05\" stroke=\"#ffcf33\" stroke-width=\"2\"/>\n</g><g style=\"filter:drop-shadow(0 0 10px #ffcf33)\" stroke-linejoin=\"round\">\n<polygon points=\"95,480 235,480 250,260 80,260\" fill=\"url(#gMetal)\" stroke=\"#ffcf33\" stroke-width=\"3\"/>\n<path d=\"M88 430 H242 M85 370 H245 M82 310 H248\" stroke=\"#ffcf33\" stroke-width=\"5\"/>\n<path d=\"M112 470 L100 272\" stroke=\"#fff\" stroke-width=\"2\" opacity=\"0.7\"/>\n<ellipse cx=\"165\" cy=\"260\" rx=\"85\" ry=\"18\" fill=\"#150e02\" stroke=\"#ffcf33\" stroke-width=\"4\"/>\n<ellipse cx=\"165\" cy=\"260\" rx=\"60\" ry=\"11\" fill=\"#000\" stroke=\"#ffcf33\" stroke-width=\"2\"/>\n</g>\n<circle cx=\"165\" cy=\"200\" r=\"70\" fill=\"url(#orb)\"/>\n<g fill=\"none\" style=\"filter:drop-shadow(0 0 14px #ffcf33)\"><circle cx=\"165\" cy=\"200\" r=\"42\" stroke=\"#ffcf33\" stroke-width=\"6\"/><circle cx=\"165\" cy=\"200\" r=\"30\" stroke=\"#fff\" stroke-width=\"3\"/></g>\n<circle cx=\"165\" cy=\"200\" r=\"10\" fill=\"#fff\"/><g style=\"filter:drop-shadow(0 0 6px #ffcf33)\" stroke-linejoin=\"round\">\n<polygon points=\"115,470 215,470 232,520 98,520\" fill=\"#2a1d05\" stroke=\"#ffcf33\" stroke-width=\"3\"/>\n<rect x=\"135\" y=\"482\" width=\"60\" height=\"30\" rx=\"6\" fill=\"#ffcf33\" fill-opacity=\"0.9\" stroke=\"#fff\" stroke-width=\"2\"/>\n<path d=\"M140 492 H190 M140 502 H190\" stroke=\"#050d1f\" stroke-width=\"3\"/></g></svg>", "w": 330, "h": 530, "ox": 0, "oy": 60}, "barrier": {"svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"208\" height=\"88\" viewBox=\"-104 -44 208 88\"><defs>\n<linearGradient id=\"cMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#06122a\"/><stop offset=\"0.35\" stop-color=\"#2a6a9c\"/><stop offset=\"0.5\" stop-color=\"#9fe9ff\"/><stop offset=\"0.65\" stop-color=\"#2a6a9c\"/><stop offset=\"1\" stop-color=\"#06122a\"/></linearGradient>\n<linearGradient id=\"gMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a1203\"/><stop offset=\"0.35\" stop-color=\"#8a6212\"/><stop offset=\"0.5\" stop-color=\"#ffe9a8\"/><stop offset=\"0.65\" stop-color=\"#8a6212\"/><stop offset=\"1\" stop-color=\"#1a1203\"/></linearGradient>\n<linearGradient id=\"cWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#12335a\"/><stop offset=\"1\" stop-color=\"#050d1f\"/></linearGradient>\n<linearGradient id=\"gWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4a3408\"/><stop offset=\"1\" stop-color=\"#150e02\"/></linearGradient>\n<radialGradient id=\"orb\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.4\" stop-color=\"#ffe9a8\"/><stop offset=\"1\" stop-color=\"#ffcf33\" stop-opacity=\"0\"/></radialGradient>\n</defs><defs>\n<linearGradient id=\"mMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a0620\"/><stop offset=\"0.35\" stop-color=\"#6a1a66\"/><stop offset=\"0.5\" stop-color=\"#ff9df0\"/><stop offset=\"0.65\" stop-color=\"#6a1a66\"/><stop offset=\"1\" stop-color=\"#1a0620\"/></linearGradient>\n<linearGradient id=\"mDark\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a0d3a\"/><stop offset=\"1\" stop-color=\"#12051a\"/></linearGradient>\n<radialGradient id=\"bombG\" cx=\"0.4\" cy=\"0.35\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#8a6a7a\"/><stop offset=\"0.5\" stop-color=\"#2a1030\"/><stop offset=\"1\" stop-color=\"#0a0410\"/></radialGradient>\n<radialGradient id=\"eye\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.35\" stop-color=\"#ff9df0\"/><stop offset=\"1\" stop-color=\"#ff2bd6\" stop-opacity=\"0\"/></radialGradient>\n</defs><g style=\"filter:drop-shadow(0 0 7px #ff2bd6)\" stroke-linejoin=\"round\" stroke-linecap=\"round\">\n<rect x=\"-80\" y=\"-18\" width=\"160\" height=\"36\" fill=\"url(#mDark)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<path d=\"M-80 18 L-44 -18 M-52 18 L-16 -18 M-24 18 L12 -18 M4 18 L40 -18 M32 18 L68 -18 M60 18 L80 -4\" stroke=\"#ff2bd6\" stroke-width=\"2.5\" fill=\"none\" opacity=\"0.9\"/>\n<rect x=\"-92\" y=\"-30\" width=\"22\" height=\"60\" rx=\"4\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<rect x=\"70\" y=\"-30\" width=\"22\" height=\"60\" rx=\"4\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<circle cx=\"-81\" cy=\"-20\" r=\"4\" fill=\"#fff\"/><circle cx=\"81\" cy=\"-20\" r=\"4\" fill=\"#fff\"/><circle cx=\"-81\" cy=\"20\" r=\"4\" fill=\"#fff\"/><circle cx=\"81\" cy=\"20\" r=\"4\" fill=\"#fff\"/>\n<path d=\"M-70 0 H70\" stroke=\"#fff\" stroke-width=\"2\" opacity=\"0.5\"/></g></svg>", "w": 208, "h": 88, "ox": -104, "oy": -44}, "drone": {"svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"132\" height=\"132\" viewBox=\"-66 -72 132 132\"><defs>\n<linearGradient id=\"cMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#06122a\"/><stop offset=\"0.35\" stop-color=\"#2a6a9c\"/><stop offset=\"0.5\" stop-color=\"#9fe9ff\"/><stop offset=\"0.65\" stop-color=\"#2a6a9c\"/><stop offset=\"1\" stop-color=\"#06122a\"/></linearGradient>\n<linearGradient id=\"gMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a1203\"/><stop offset=\"0.35\" stop-color=\"#8a6212\"/><stop offset=\"0.5\" stop-color=\"#ffe9a8\"/><stop offset=\"0.65\" stop-color=\"#8a6212\"/><stop offset=\"1\" stop-color=\"#1a1203\"/></linearGradient>\n<linearGradient id=\"cWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#12335a\"/><stop offset=\"1\" stop-color=\"#050d1f\"/></linearGradient>\n<linearGradient id=\"gWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4a3408\"/><stop offset=\"1\" stop-color=\"#150e02\"/></linearGradient>\n<radialGradient id=\"orb\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.4\" stop-color=\"#ffe9a8\"/><stop offset=\"1\" stop-color=\"#ffcf33\" stop-opacity=\"0\"/></radialGradient>\n</defs><defs>\n<linearGradient id=\"mMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a0620\"/><stop offset=\"0.35\" stop-color=\"#6a1a66\"/><stop offset=\"0.5\" stop-color=\"#ff9df0\"/><stop offset=\"0.65\" stop-color=\"#6a1a66\"/><stop offset=\"1\" stop-color=\"#1a0620\"/></linearGradient>\n<linearGradient id=\"mDark\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a0d3a\"/><stop offset=\"1\" stop-color=\"#12051a\"/></linearGradient>\n<radialGradient id=\"bombG\" cx=\"0.4\" cy=\"0.35\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#8a6a7a\"/><stop offset=\"0.5\" stop-color=\"#2a1030\"/><stop offset=\"1\" stop-color=\"#0a0410\"/></radialGradient>\n<radialGradient id=\"eye\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.35\" stop-color=\"#ff9df0\"/><stop offset=\"1\" stop-color=\"#ff2bd6\" stop-opacity=\"0\"/></radialGradient>\n</defs><g style=\"filter:drop-shadow(0 0 7px #ff2bd6)\" stroke-linejoin=\"round\" stroke-linecap=\"round\">\n<polygon points=\"0,-50 18,-20 52,-36 38,10 54,40 20,30 0,52 -20,30 -54,40 -38,10 -52,-36 -18,-20\" fill=\"url(#mDark)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<path d=\"M0 -50 V52 M-18 -20 L-38 10 M18 -20 L38 10 M-20 30 L0 6 L20 30\" stroke=\"#ff2bd6\" stroke-width=\"2\" fill=\"none\" opacity=\"0.8\"/>\n<circle cx=\"0\" cy=\"0\" r=\"22\" fill=\"#12051a\" stroke=\"#ff2bd6\" stroke-width=\"4\"/>\n<circle cx=\"0\" cy=\"0\" r=\"30\" fill=\"url(#eye)\" opacity=\"0.7\" stroke=\"none\"/>\n<circle cx=\"0\" cy=\"0\" r=\"11\" fill=\"#fff\"/>\n<rect x=\"-6\" y=\"-60\" width=\"12\" height=\"14\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"2\"/>\n<circle cx=\"-46\" cy=\"-30\" r=\"4\" fill=\"#ffcf33\"/><circle cx=\"46\" cy=\"-30\" r=\"4\" fill=\"#ffcf33\"/></g></svg>", "w": 132, "h": 132, "ox": -66, "oy": -72}, "weaver": {"svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"252\" height=\"164\" viewBox=\"-126 -84 252 164\"><defs>\n<linearGradient id=\"cMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#06122a\"/><stop offset=\"0.35\" stop-color=\"#2a6a9c\"/><stop offset=\"0.5\" stop-color=\"#9fe9ff\"/><stop offset=\"0.65\" stop-color=\"#2a6a9c\"/><stop offset=\"1\" stop-color=\"#06122a\"/></linearGradient>\n<linearGradient id=\"gMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a1203\"/><stop offset=\"0.35\" stop-color=\"#8a6212\"/><stop offset=\"0.5\" stop-color=\"#ffe9a8\"/><stop offset=\"0.65\" stop-color=\"#8a6212\"/><stop offset=\"1\" stop-color=\"#1a1203\"/></linearGradient>\n<linearGradient id=\"cWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#12335a\"/><stop offset=\"1\" stop-color=\"#050d1f\"/></linearGradient>\n<linearGradient id=\"gWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4a3408\"/><stop offset=\"1\" stop-color=\"#150e02\"/></linearGradient>\n<radialGradient id=\"orb\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.4\" stop-color=\"#ffe9a8\"/><stop offset=\"1\" stop-color=\"#ffcf33\" stop-opacity=\"0\"/></radialGradient>\n</defs><defs>\n<linearGradient id=\"mMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a0620\"/><stop offset=\"0.35\" stop-color=\"#6a1a66\"/><stop offset=\"0.5\" stop-color=\"#ff9df0\"/><stop offset=\"0.65\" stop-color=\"#6a1a66\"/><stop offset=\"1\" stop-color=\"#1a0620\"/></linearGradient>\n<linearGradient id=\"mDark\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a0d3a\"/><stop offset=\"1\" stop-color=\"#12051a\"/></linearGradient>\n<radialGradient id=\"bombG\" cx=\"0.4\" cy=\"0.35\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#8a6a7a\"/><stop offset=\"0.5\" stop-color=\"#2a1030\"/><stop offset=\"1\" stop-color=\"#0a0410\"/></radialGradient>\n<radialGradient id=\"eye\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.35\" stop-color=\"#ff9df0\"/><stop offset=\"1\" stop-color=\"#ff2bd6\" stop-opacity=\"0\"/></radialGradient>\n</defs><g style=\"filter:drop-shadow(0 0 7px #ff2bd6)\" stroke-linejoin=\"round\" stroke-linecap=\"round\">\n<polygon points=\"-84,-50 -58,-8 -30,-24 -40,20 -18,44 0,70 18,44 40,20 30,-24 58,-8 84,-50 62,-52 40,-34 20,-52 0,-24 -20,-52 -40,-34 -62,-52\" fill=\"url(#mDark)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<polygon points=\"-84,-50 -118,-30 -70,2 -58,-8\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<polygon points=\"84,-50 118,-30 70,2 58,-8\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<path d=\"M-30 -24 L-18 44 M30 -24 L18 44 M-40 20 H40 M0 -24 V70\" stroke=\"#ff2bd6\" stroke-width=\"2\" fill=\"none\" opacity=\"0.85\"/>\n<polygon points=\"-26,-6 26,-6 18,16 -18,16\" fill=\"#12051a\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<path d=\"M-16 4 H16\" stroke=\"#fff\" stroke-width=\"5\"/><path d=\"M-16 4 H16\" stroke=\"#ff2bd6\" stroke-width=\"9\" opacity=\"0.5\"/>\n<polygon points=\"-12,44 -6,74 0,52\" fill=\"#ffcf33\" stroke=\"none\"/><polygon points=\"12,44 6,74 0,52\" fill=\"#ffcf33\" stroke=\"none\"/>\n<path d=\"M-110 -26 L-96 -8 M110 -26 L96 -8\" stroke=\"#fff\" stroke-width=\"3\"/></g></svg>", "w": 252, "h": 164, "ox": -126, "oy": -84}, "armor": {"svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"172\" height=\"116\" viewBox=\"-86 -62 172 116\"><defs>\n<linearGradient id=\"cMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#06122a\"/><stop offset=\"0.35\" stop-color=\"#2a6a9c\"/><stop offset=\"0.5\" stop-color=\"#9fe9ff\"/><stop offset=\"0.65\" stop-color=\"#2a6a9c\"/><stop offset=\"1\" stop-color=\"#06122a\"/></linearGradient>\n<linearGradient id=\"gMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a1203\"/><stop offset=\"0.35\" stop-color=\"#8a6212\"/><stop offset=\"0.5\" stop-color=\"#ffe9a8\"/><stop offset=\"0.65\" stop-color=\"#8a6212\"/><stop offset=\"1\" stop-color=\"#1a1203\"/></linearGradient>\n<linearGradient id=\"cWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#12335a\"/><stop offset=\"1\" stop-color=\"#050d1f\"/></linearGradient>\n<linearGradient id=\"gWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4a3408\"/><stop offset=\"1\" stop-color=\"#150e02\"/></linearGradient>\n<radialGradient id=\"orb\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.4\" stop-color=\"#ffe9a8\"/><stop offset=\"1\" stop-color=\"#ffcf33\" stop-opacity=\"0\"/></radialGradient>\n</defs><defs>\n<linearGradient id=\"mMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a0620\"/><stop offset=\"0.35\" stop-color=\"#6a1a66\"/><stop offset=\"0.5\" stop-color=\"#ff9df0\"/><stop offset=\"0.65\" stop-color=\"#6a1a66\"/><stop offset=\"1\" stop-color=\"#1a0620\"/></linearGradient>\n<linearGradient id=\"mDark\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a0d3a\"/><stop offset=\"1\" stop-color=\"#12051a\"/></linearGradient>\n<radialGradient id=\"bombG\" cx=\"0.4\" cy=\"0.35\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#8a6a7a\"/><stop offset=\"0.5\" stop-color=\"#2a1030\"/><stop offset=\"1\" stop-color=\"#0a0410\"/></radialGradient>\n<radialGradient id=\"eye\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.35\" stop-color=\"#ff9df0\"/><stop offset=\"1\" stop-color=\"#ff2bd6\" stop-opacity=\"0\"/></radialGradient>\n</defs><g style=\"filter:drop-shadow(0 0 7px #ff2bd6)\" stroke-linejoin=\"round\" stroke-linecap=\"round\">\n<polygon points=\"-60,-40 60,-40 76,-16 76,16 60,44 -60,44 -76,16 -76,-16\" fill=\"url(#mDark)\" stroke=\"#ff2bd6\" stroke-width=\"4\"/>\n<polygon points=\"-46,-28 46,-28 58,-10 58,10 46,32 -46,32 -58,10 -58,-10\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<path d=\"M-46 -28 L-30 32 M0 -28 V32 M46 -28 L30 32\" stroke=\"#ff2bd6\" stroke-width=\"2.5\" fill=\"none\"/>\n<rect x=\"-18\" y=\"-12\" width=\"36\" height=\"24\" rx=\"5\" fill=\"#12051a\" stroke=\"#ffcf33\" stroke-width=\"3\"/>\n<path d=\"M-10 0 H10\" stroke=\"#ffcf33\" stroke-width=\"4\"/>\n<circle cx=\"-66\" cy=\"-30\" r=\"4\" fill=\"#fff\"/><circle cx=\"66\" cy=\"-30\" r=\"4\" fill=\"#fff\"/><circle cx=\"-66\" cy=\"34\" r=\"4\" fill=\"#fff\"/><circle cx=\"66\" cy=\"34\" r=\"4\" fill=\"#fff\"/>\n<path d=\"M-30 -52 V-40 M30 -52 V-40\" stroke=\"#ffcf33\" stroke-width=\"5\"/></g></svg>", "w": 172, "h": 116, "ox": -86, "oy": -62}, "bomb": {"svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"132\" height=\"138\" viewBox=\"-66 -76 132 138\"><defs>\n<linearGradient id=\"cMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#06122a\"/><stop offset=\"0.35\" stop-color=\"#2a6a9c\"/><stop offset=\"0.5\" stop-color=\"#9fe9ff\"/><stop offset=\"0.65\" stop-color=\"#2a6a9c\"/><stop offset=\"1\" stop-color=\"#06122a\"/></linearGradient>\n<linearGradient id=\"gMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a1203\"/><stop offset=\"0.35\" stop-color=\"#8a6212\"/><stop offset=\"0.5\" stop-color=\"#ffe9a8\"/><stop offset=\"0.65\" stop-color=\"#8a6212\"/><stop offset=\"1\" stop-color=\"#1a1203\"/></linearGradient>\n<linearGradient id=\"cWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#12335a\"/><stop offset=\"1\" stop-color=\"#050d1f\"/></linearGradient>\n<linearGradient id=\"gWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4a3408\"/><stop offset=\"1\" stop-color=\"#150e02\"/></linearGradient>\n<radialGradient id=\"orb\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.4\" stop-color=\"#ffe9a8\"/><stop offset=\"1\" stop-color=\"#ffcf33\" stop-opacity=\"0\"/></radialGradient>\n</defs><defs>\n<linearGradient id=\"mMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a0620\"/><stop offset=\"0.35\" stop-color=\"#6a1a66\"/><stop offset=\"0.5\" stop-color=\"#ff9df0\"/><stop offset=\"0.65\" stop-color=\"#6a1a66\"/><stop offset=\"1\" stop-color=\"#1a0620\"/></linearGradient>\n<linearGradient id=\"mDark\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a0d3a\"/><stop offset=\"1\" stop-color=\"#12051a\"/></linearGradient>\n<radialGradient id=\"bombG\" cx=\"0.4\" cy=\"0.35\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#8a6a7a\"/><stop offset=\"0.5\" stop-color=\"#2a1030\"/><stop offset=\"1\" stop-color=\"#0a0410\"/></radialGradient>\n<radialGradient id=\"eye\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.35\" stop-color=\"#ff9df0\"/><stop offset=\"1\" stop-color=\"#ff2bd6\" stop-opacity=\"0\"/></radialGradient>\n</defs><g style=\"filter:drop-shadow(0 0 7px #ff2bd6)\" stroke-linejoin=\"round\" stroke-linecap=\"round\">\n<circle cx=\"0\" cy=\"6\" r=\"44\" fill=\"url(#bombG)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<path d=\"M-44 6 H44 M0 -38 V50 M-31 -25 Q0 6 31 -25 M-31 37 Q0 6 31 37\" stroke=\"#ff2bd6\" stroke-width=\"2\" fill=\"none\" opacity=\"0.7\"/>\n<rect x=\"-12\" y=\"-48\" width=\"24\" height=\"14\" rx=\"3\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<path d=\"M0 -48 Q10 -66 22 -62\" stroke=\"#ffcf33\" stroke-width=\"3\" fill=\"none\"/>\n<circle cx=\"24\" cy=\"-62\" r=\"7\" fill=\"#fff\" style=\"filter:drop-shadow(0 0 10px #ffcf33)\"/>\n<circle cx=\"0\" cy=\"6\" r=\"12\" fill=\"#ff2bd6\" opacity=\"0.9\"/><circle cx=\"0\" cy=\"6\" r=\"5\" fill=\"#fff\"/>\n<path d=\"M-60 6 H-50 M50 6 H60\" stroke=\"#ffcf33\" stroke-width=\"4\"/></g></svg>", "w": 132, "h": 138, "ox": -66, "oy": -76}, "boss": {"svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"372\" height=\"224\" viewBox=\"-186 -96 372 224\"><defs>\n<linearGradient id=\"cMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#06122a\"/><stop offset=\"0.35\" stop-color=\"#2a6a9c\"/><stop offset=\"0.5\" stop-color=\"#9fe9ff\"/><stop offset=\"0.65\" stop-color=\"#2a6a9c\"/><stop offset=\"1\" stop-color=\"#06122a\"/></linearGradient>\n<linearGradient id=\"gMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a1203\"/><stop offset=\"0.35\" stop-color=\"#8a6212\"/><stop offset=\"0.5\" stop-color=\"#ffe9a8\"/><stop offset=\"0.65\" stop-color=\"#8a6212\"/><stop offset=\"1\" stop-color=\"#1a1203\"/></linearGradient>\n<linearGradient id=\"cWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#12335a\"/><stop offset=\"1\" stop-color=\"#050d1f\"/></linearGradient>\n<linearGradient id=\"gWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4a3408\"/><stop offset=\"1\" stop-color=\"#150e02\"/></linearGradient>\n<radialGradient id=\"orb\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.4\" stop-color=\"#ffe9a8\"/><stop offset=\"1\" stop-color=\"#ffcf33\" stop-opacity=\"0\"/></radialGradient>\n</defs><defs>\n<linearGradient id=\"mMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a0620\"/><stop offset=\"0.35\" stop-color=\"#6a1a66\"/><stop offset=\"0.5\" stop-color=\"#ff9df0\"/><stop offset=\"0.65\" stop-color=\"#6a1a66\"/><stop offset=\"1\" stop-color=\"#1a0620\"/></linearGradient>\n<linearGradient id=\"mDark\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a0d3a\"/><stop offset=\"1\" stop-color=\"#12051a\"/></linearGradient>\n<radialGradient id=\"bombG\" cx=\"0.4\" cy=\"0.35\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#8a6a7a\"/><stop offset=\"0.5\" stop-color=\"#2a1030\"/><stop offset=\"1\" stop-color=\"#0a0410\"/></radialGradient>\n<radialGradient id=\"eye\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.35\" stop-color=\"#ff9df0\"/><stop offset=\"1\" stop-color=\"#ff2bd6\" stop-opacity=\"0\"/></radialGradient>\n</defs><g style=\"filter:drop-shadow(0 0 7px #ff2bd6)\" stroke-linejoin=\"round\" stroke-linecap=\"round\">\n<polygon points=\"-170,-20 -120,-70 -60,-84 0,-60 60,-84 120,-70 170,-20 150,40 90,60 40,100 0,120 -40,100 -90,60 -150,40\" fill=\"url(#mDark)\" stroke=\"#ff2bd6\" stroke-width=\"4\"/>\n<path d=\"M-120 -70 L-90 60 M120 -70 L90 60 M-60 -84 L-40 100 M60 -84 L40 100 M0 -60 V120 M-170 -20 H-90 M170 -20 H90\" stroke=\"#ff2bd6\" stroke-width=\"2.5\" fill=\"none\" opacity=\"0.8\"/>\n<polygon points=\"-62,-48 62,-48 78,0 40,62 0,86 -40,62 -78,0\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"4\"/>\n<path d=\"M-62 -48 L-30 40 M62 -48 L30 40 M-78 0 H78\" stroke=\"#ff2bd6\" stroke-width=\"2\" fill=\"none\"/>\n<circle cx=\"0\" cy=\"6\" r=\"34\" fill=\"#12051a\" stroke=\"#ffcf33\" stroke-width=\"5\"/>\n<circle cx=\"0\" cy=\"6\" r=\"50\" fill=\"url(#eye)\" opacity=\"0.8\" stroke=\"none\"/>\n<circle cx=\"0\" cy=\"6\" r=\"18\" fill=\"#fff\"/><circle cx=\"0\" cy=\"6\" r=\"8\" fill=\"#ff2bd6\"/>\n<rect x=\"-176\" y=\"-8\" width=\"30\" height=\"64\" rx=\"6\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/><rect x=\"146\" y=\"-8\" width=\"30\" height=\"64\" rx=\"6\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<circle cx=\"-161\" cy=\"60\" r=\"10\" fill=\"#fff\"/><circle cx=\"161\" cy=\"60\" r=\"10\" fill=\"#fff\"/>\n<circle cx=\"-110\" cy=\"-30\" r=\"12\" fill=\"#12051a\" stroke=\"#ffcf33\" stroke-width=\"3\"/><circle cx=\"110\" cy=\"-30\" r=\"12\" fill=\"#12051a\" stroke=\"#ffcf33\" stroke-width=\"3\"/>\n<circle cx=\"-110\" cy=\"-30\" r=\"4\" fill=\"#fff\"/><circle cx=\"110\" cy=\"-30\" r=\"4\" fill=\"#fff\"/></g></svg>", "w": 372, "h": 224, "ox": -186, "oy": -96}, "finalboss": {"svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"428\" height=\"392\" viewBox=\"-214 -182 428 392\"><defs>\n<linearGradient id=\"cMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#06122a\"/><stop offset=\"0.35\" stop-color=\"#2a6a9c\"/><stop offset=\"0.5\" stop-color=\"#9fe9ff\"/><stop offset=\"0.65\" stop-color=\"#2a6a9c\"/><stop offset=\"1\" stop-color=\"#06122a\"/></linearGradient>\n<linearGradient id=\"gMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a1203\"/><stop offset=\"0.35\" stop-color=\"#8a6212\"/><stop offset=\"0.5\" stop-color=\"#ffe9a8\"/><stop offset=\"0.65\" stop-color=\"#8a6212\"/><stop offset=\"1\" stop-color=\"#1a1203\"/></linearGradient>\n<linearGradient id=\"cWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#12335a\"/><stop offset=\"1\" stop-color=\"#050d1f\"/></linearGradient>\n<linearGradient id=\"gWing\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#4a3408\"/><stop offset=\"1\" stop-color=\"#150e02\"/></linearGradient>\n<radialGradient id=\"orb\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.4\" stop-color=\"#ffe9a8\"/><stop offset=\"1\" stop-color=\"#ffcf33\" stop-opacity=\"0\"/></radialGradient>\n</defs><defs>\n<linearGradient id=\"mMetal\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#1a0620\"/><stop offset=\"0.35\" stop-color=\"#6a1a66\"/><stop offset=\"0.5\" stop-color=\"#ff9df0\"/><stop offset=\"0.65\" stop-color=\"#6a1a66\"/><stop offset=\"1\" stop-color=\"#1a0620\"/></linearGradient>\n<linearGradient id=\"mDark\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a0d3a\"/><stop offset=\"1\" stop-color=\"#12051a\"/></linearGradient>\n<radialGradient id=\"bombG\" cx=\"0.4\" cy=\"0.35\" r=\"0.7\"><stop offset=\"0\" stop-color=\"#8a6a7a\"/><stop offset=\"0.5\" stop-color=\"#2a1030\"/><stop offset=\"1\" stop-color=\"#0a0410\"/></radialGradient>\n<radialGradient id=\"eye\" cx=\"0.5\" cy=\"0.5\" r=\"0.5\"><stop offset=\"0\" stop-color=\"#fff\"/><stop offset=\"0.35\" stop-color=\"#ff9df0\"/><stop offset=\"1\" stop-color=\"#ff2bd6\" stop-opacity=\"0\"/></radialGradient>\n</defs><g style=\"filter:drop-shadow(0 0 7px #ff2bd6)\" stroke-linejoin=\"round\" stroke-linecap=\"round\">\n<polygon points=\"-190,-60 -140,-120 -70,-140 0,-110 70,-140 140,-120 190,-60 200,40 170,100 110,130 60,170 0,190 -60,170 -110,130 -170,100 -200,40\" fill=\"url(#mDark)\" stroke=\"#ff2bd6\" stroke-width=\"5\"/>\n<polygon points=\"-160,-60 -120,-104 -70,-118 -40,-84 -70,-30 -130,0\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"4\"/>\n<polygon points=\"160,-60 120,-104 70,-118 40,-84 70,-30 130,0\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"4\"/>\n<polygon points=\"-150,20 -90,30 -70,90 -110,110 -160,80\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"4\"/>\n<polygon points=\"150,20 90,30 70,90 110,110 160,80\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"4\"/>\n<path d=\"M-200 40 H-110 M200 40 H110 M-60 170 L-40 60 M60 170 L40 60 M0 -110 V-60\" stroke=\"#ff2bd6\" stroke-width=\"3\" fill=\"none\" opacity=\"0.85\"/>\n<polygon points=\"-84,-60 84,-60 100,0 70,80 0,120 -70,80 -100,0\" fill=\"#12051a\" stroke=\"#ff2bd6\" stroke-width=\"5\"/>\n<polygon points=\"-70,-44 70,-44 82,0 56,64 0,96 -56,64 -82,0\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"3\"/>\n<path d=\"M-70 -44 L-40 50 M70 -44 L40 50 M-82 0 H82\" stroke=\"#ff2bd6\" stroke-width=\"2.5\" fill=\"none\"/>\n<circle cx=\"0\" cy=\"8\" r=\"52\" fill=\"#12051a\" stroke=\"#ffcf33\" stroke-width=\"7\"/>\n<circle cx=\"0\" cy=\"8\" r=\"76\" fill=\"url(#eye)\" opacity=\"0.85\" stroke=\"none\"/>\n<path d=\"M-52 8 H52 M0 -44 V60 M-37 -29 L37 45 M37 -29 L-37 45\" stroke=\"#ffcf33\" stroke-width=\"3\" opacity=\"0.8\"/>\n<circle cx=\"0\" cy=\"8\" r=\"26\" fill=\"#fff\"/><circle cx=\"0\" cy=\"8\" r=\"12\" fill=\"#ff2bd6\"/>\n<rect x=\"-206\" y=\"-20\" width=\"40\" height=\"90\" rx=\"8\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"4\"/><rect x=\"166\" y=\"-20\" width=\"40\" height=\"90\" rx=\"8\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"4\"/>\n<circle cx=\"-186\" cy=\"80\" r=\"14\" fill=\"#fff\"/><circle cx=\"186\" cy=\"80\" r=\"14\" fill=\"#fff\"/>\n<rect x=\"-128\" y=\"130\" width=\"34\" height=\"60\" rx=\"6\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"4\"/><rect x=\"94\" y=\"130\" width=\"34\" height=\"60\" rx=\"6\" fill=\"url(#mMetal)\" stroke=\"#ff2bd6\" stroke-width=\"4\"/>\n<circle cx=\"-111\" cy=\"194\" r=\"10\" fill=\"#fff\"/><circle cx=\"111\" cy=\"194\" r=\"10\" fill=\"#fff\"/>\n<circle cx=\"-110\" cy=\"-70\" r=\"16\" fill=\"#12051a\" stroke=\"#ffcf33\" stroke-width=\"4\"/><circle cx=\"110\" cy=\"-70\" r=\"16\" fill=\"#12051a\" stroke=\"#ffcf33\" stroke-width=\"4\"/>\n<circle cx=\"-110\" cy=\"-70\" r=\"6\" fill=\"#fff\"/><circle cx=\"110\" cy=\"-70\" r=\"6\" fill=\"#fff\"/>\n<path d=\"M-60 -140 V-170 M-20 -112 V-150 M20 -112 V-150 M60 -140 V-170\" stroke=\"#ffcf33\" stroke-width=\"6\"/></g></svg>", "w": 428, "h": 392, "ox": -214, "oy": -182}};
 </script>
 <script>
 'use strict';
@@ -38,7 +38,7 @@ const fmt=n=>Math.floor(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');
 
 /* ---------- save ---------- */
 const DEF={coins:300,pw:{p:3,l:2,r:1},laser:60,rockets:1,revive:1,boost:1,push:0,pushGiven:false,best:0,level:1,
-  adTimes:[],adDay:'',adCount:0,lastInter:0,muted:false,seenHelp:false};
+  adTimes:[],adDay:'',adCount:0,lastInter:0,muted:false,seenHelp:false,seenIntro:false,dailyDay:''};
 let S=JSON.parse(JSON.stringify(DEF));
 function sanitize(o){
   const s=JSON.parse(JSON.stringify(DEF));
@@ -50,7 +50,7 @@ function sanitize(o){
   s.push=n(o.push,0,0,1);s.pushGiven=!!o.pushGiven;s.best=n(o.best,0,0,1e9);s.level=n(o.level,1,1,MAXLV);
   s.adTimes=Array.isArray(o.adTimes)?o.adTimes.filter(t=>typeof t==='number').slice(-4):[];
   s.adDay=typeof o.adDay==='string'?o.adDay.slice(0,12):'';s.adCount=n(o.adCount,0,0,99);
-  s.lastInter=n(o.lastInter,0,0,9e15);s.muted=!!o.muted;s.seenHelp=!!o.seenHelp;
+  s.lastInter=n(o.lastInter,0,0,9e15);s.muted=!!o.muted;s.seenHelp=!!o.seenHelp;s.seenIntro=!!o.seenIntro;s.dailyDay=typeof o.dailyDay==='string'?o.dailyDay.slice(0,12):'';
   return s;
 }
 let saveTimer=0;
@@ -72,16 +72,17 @@ async function loadSave(){
 /* ---------- audio ---------- */
 let AC=null,master=null,audioOn=true,musicOn=false,nextNote=0,noteIdx=0;
 const sfxLast={};
-function sysAudio(){try{return YT&&YT.system&&YT.system.isAudioEnabled?YT.system.isAudioEnabled():true;}catch(e){return true;}}
+function inFrame(){try{return window.self!==window.top;}catch(e){return true;}}
+function sysAudio(){try{if(!inFrame())return true;return YT&&YT.system&&YT.system.isAudioEnabled?YT.system.isAudioEnabled()!==false:true;}catch(e){return true;}}
 function soundOK(){return audioOn&&!S.muted;}
 function initAudio(){
   if(AC){if(AC.state==='suspended'){try{AC.resume();}catch(e){}}return;}
   try{
     const C=window.AudioContext||window.webkitAudioContext;if(!C)return;
-    AC=new C();master=AC.createGain();master.gain.value=soundOK()?0.5:0;master.connect(AC.destination);
+    AC=new C();master=AC.createGain();master.gain.value=soundOK()?1:0;master.connect(AC.destination);
   }catch(e){AC=null;}
 }
-function applyAudio(){if(master&&AC){try{master.gain.setTargetAtTime(soundOK()?0.5:0,AC.currentTime,0.02);}catch(e){}}}
+function applyAudio(){if(master&&AC){try{master.gain.setTargetAtTime(soundOK()?1:0,AC.currentTime,0.02);}catch(e){}}}
 function tone(f,d,type,vol,slide,when){
   if(!AC||!soundOK())return;
   const t=(when||AC.currentTime);
@@ -104,11 +105,11 @@ function sfx(name){
   if(sfxLast[name]&&now-sfxLast[name]<gap)return;sfxLast[name]=now;
   if(!AC)return;
   switch(name){
-    case 'shoot':tone(880,0.05,'square',0.03,-400);break;
-    case 'laser':tone(220,0.08,'sawtooth',0.03,60);break;
-    case 'hit':tone(180,0.06,'square',0.05,-60);break;
-    case 'coin':tone(1200,0.07,'triangle',0.06,500);break;
-    case 'boom':noise(0.4,0.25,900);tone(90,0.35,'sawtooth',0.12,-60);break;
+    case 'shoot':tone(880,0.05,'square',0.07,-400);break;
+    case 'laser':tone(220,0.08,'sawtooth',0.06,60);break;
+    case 'hit':tone(180,0.06,'square',0.1,-60);break;
+    case 'coin':tone(1200,0.07,'triangle',0.12,500);break;
+    case 'boom':noise(0.4,0.5,900);tone(90,0.35,'sawtooth',0.25,-60);break;
     case 'nova':noise(0.9,0.35,1400);tone(60,0.8,'sawtooth',0.2,-30);tone(300,0.6,'square',0.06,-200);break;
     case 'push':tone(140,0.5,'sawtooth',0.16,600);noise(0.5,0.18,2500);break;
     case 'hurt':noise(0.25,0.28,600);tone(110,0.25,'square',0.12,-60);break;
@@ -125,8 +126,8 @@ function musicTick(){
   if(nextNote<AC.currentTime-0.5)nextNote=AC.currentTime+0.05;
   while(nextNote<AC.currentTime+0.15){
     const i=noteIdx%8,bar=Math.floor(noteIdx/8)%2;
-    if(i%2===0)tone(BASS[(bar*4+i/2)%8],step*1.8,'sawtooth',0.05,0,nextNote);
-    tone(ARP[i]*(bar?1.122:1),step*0.8,'square',0.018,0,nextNote);
+    if(i%2===0)tone(BASS[(bar*4+i/2)%8],step*1.8,'sawtooth',0.11,0,nextNote);
+    tone(ARP[i]*(bar?1.122:1),step*0.8,'square',0.04,0,nextNote);
     nextNote+=step;noteIdx++;
   }
 }
@@ -210,36 +211,47 @@ async function watchRewarded(){
 }
 
 /* ---------- run ---------- */
-function newRun(){
-  const L=S.level,w=Math.floor((L-1)/5);
+function mulberry(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function seedOf(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619);}return h>>>0;}
+function R(){return game&&game.rng?game.rng():Math.random();}
+function rg(a,b){return a+R()*(b-a);}
+function newRun(daily){
+  const L=daily?6:S.level,w=Math.floor((L-1)/5);
   game={
     state:'play',L,world:w,t:0,score:0,coinsRun:0,life:8,maxLife:8,px:0,vx:0,
     weapon:'pulse',prevWeapon:'pulse',fireT:0,fireSide:0,ents:[],bul:[],parts:[],pops:[],
-    spawnT:1.2,coinT:4,boss:null,bossSpawned:false,over:false,wonT:0,inv:0,phase:0,
-    novaT:0,novaText:0,pushFx:0,pushRing:0,hurtT:0,drift:0,driftT:0,helpT:S.seenHelp?0:4,
-    laserOn:false,laserFlash:0,reviveUsed:false,duration:100+Math.min(20,L*2)
+    spawnT:0.5,coinT:3,boss:null,bossSpawned:false,over:false,wonT:0,inv:0,phase:0,
+    novaT:0,novaText:0,pushFx:0,pushRing:0,hurtT:0,drift:0,driftT:0,helpT:S.seenHelp?0:5,
+    laserOn:false,laserFlash:0,reviveUsed:false,duration:daily?70:(100+Math.min(20,L*2)),
+    daily:!!daily,rng:daily?mulberry(seedOf(today())):null,streak:0,saved:0,pushClaimed:false,
+    allyPlan:L===1?[30]:L===2?[22,58]:null,allyT:rg(8,12),pushTip:0
   };
-  if(S.level===1&&!S.seenHelp){S.seenHelp=true;}
+  if(!daily&&L===1&&!S.seenIntro)game.state='intro';
+  if(!S.seenHelp)S.seenHelp=true;
+  // action starts right away: a few enemies already in the tunnel
+  for(let i=0;i<3;i++)spawnEnt(pickType(0),rg(-0.6,0.6),0.62+i*0.14);
   steerTarget=0;
 }
+function mult(){return 1+Math.min(3,Math.floor(game.streak/10));}
 function diff(){return 1+(game.L-1)*0.06;}
-function zv(){return 0.20+game.L*0.006+Math.min(0.08,game.t*0.0006);}
+function zv(){return 0.17+game.L*0.005+Math.min(0.06,game.t*0.0005);}
 function hpMul(){return 1+0.14*(game.L-1);}
 const TYPES={
   barrier:{hw:0.42,hp:5,w:208,pts:40,spr:'barrier',dmg:2},
   drone:{hw:0.2,hp:2,w:132,pts:60,spr:'drone',dmg:2},
   weaver:{hw:0.3,hp:4,w:252,pts:90,spr:'weaver',dmg:2},
   armor:{hw:0.34,hp:14,w:172,pts:160,spr:'armor',dmg:2},
-  bomb:{hw:0.2,hp:1,w:132,pts:30,spr:'bomb',dmg:2}
+  bomb:{hw:0.2,hp:1,w:132,pts:30,spr:'bomb',dmg:2},
+  ally:{hw:0.26,hp:3,w:124,pts:0,spr:'ally',dmg:0}
 };
 function spawnEnt(type,x,z,extra){
   const T=TYPES[type];
-  const e=Object.assign({type,x:clamp(x,-0.82,0.82),z:z==null?1.02:z,hp:Math.ceil(T.hp*hpMul()),hw:T.hw,flash:0,ph:rnd(0,6.28),vz:1},extra||{});
+  const e=Object.assign({type,x:clamp(x,-0.82,0.82),z:z==null?1.02:z,hp:type==='ally'?T.hp:Math.ceil(T.hp*hpMul()),hw:T.hw,flash:0,ph:rg(0,6.28),vz:1},extra||{});
   e.maxhp=e.hp;game.ents.push(e);return e;
 }
 function pickType(t){
-  const r=Math.random(),L=game.L;
-  if(t<8)return r<0.8?'barrier':'drone';
+  const r=R();
+  if(t<8)return r<0.75?'barrier':'drone';
   if(t<20)return r<0.45?'barrier':r<0.85?'drone':'bomb';
   if(t<38)return r<0.3?'barrier':r<0.55?'drone':r<0.75?'bomb':'weaver';
   return r<0.22?'barrier':r<0.42?'drone':r<0.6?'bomb':r<0.8?'weaver':'armor';
@@ -247,17 +259,34 @@ function pickType(t){
 function spawnWave(){
   const g=game,t=g.t;
   const type=pickType(t);
-  if(type==='barrier'&&Math.random()<0.45){ // wall with a gap
-    const gap=rnd(-0.6,0.6);
+  if(type==='barrier'&&R()<0.45){ // wall with a gap
+    const gap=rg(-0.6,0.6);
     spawnEnt('barrier',gap-0.5>-0.8?gap-0.55:gap+0.55,1.02,{hw:0.36});
     if(gap<0.3)spawnEnt('barrier',gap+0.78,1.02,{hw:0.3});
   }else if(type==='drone'){
-    const n=1+(Math.random()<0.4?1:0);for(let i=0;i<n;i++)spawnEnt('drone',rnd(-0.7,0.7),1.02+i*0.06);
-  }else spawnEnt(type,rnd(-0.7,0.7));
+    const n=1+(R()<0.4?1:0);for(let i=0;i<n;i++)spawnEnt('drone',rg(-0.7,0.7),1.02+i*0.06);
+  }else spawnEnt(type,rg(-0.7,0.7));
+}
+function spawnAlly(){
+  const g=game;
+  for(let k=0;k<8;k++){
+    const lane=rg(-0.7,0.7);
+    if(g.ents.some(e=>!e.dead&&!e.coin&&e.z>0.75&&Math.abs(e.x-lane)<0.6))continue;
+    spawnEnt('ally',lane,1.02,{vz:0.9});return true;
+  }
+  return false;
+}
+function allyPenalty(e){
+  const g=game,p=proj(Math.max(0,e.z)),x=px(e.x,p.s);
+  e.dead=true;addParts(x,p.y,18,COL.bl,200,0.7,3);
+  const lose=Math.min(S.coins,30);S.coins-=lose;
+  g.life=Math.max(0,g.life-1);g.streak=0;shake=12;flashA=0.5;flashC=COL.bl;g.hurtT=0.4;sfx('hurt');
+  pop('-30 COINS',x,Math.max(120,p.y-20),COL.bl,16);
+  if(g.life<=0)endRun(false);
 }
 function addParts(x,y,n,col,spd,life,size){
   for(let i=0;i<n;i++){
-    const a=rnd(0,6.283),s=rnd(0.3,1)*spd;
+    const a=Math.random()*6.283,s=(0.3+Math.random()*0.7)*spd;
     game.parts.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:rnd(0.4,1)*life,max:life,col,size:size||2.5,g:0});
   }
 }
@@ -267,7 +296,7 @@ function px(l,s){return VX+l*HW*s;}
 
 function hurt(n){
   const g=game;if(g.inv>0||g.state!=='play')return;
-  g.life=Math.max(0,g.life-n);g.inv=1.1;shake=14;flashA=0.55;flashC=COL.mg;g.hurtT=0.5;sfx('hurt');
+  g.life=Math.max(0,g.life-n);g.streak=0;g.inv=1.1;shake=14;flashA=0.55;flashC=COL.mg;g.hurtT=0.5;sfx('hurt');
   try{if(navigator.vibrate)navigator.vibrate(60);}catch(e){}
   addParts(px(g.px,1),SHIP_BOTTOM-60,22,COL.mg,260,0.7,3);
   pop('-'+n,px(g.px,1),SHIP_BOTTOM-150,COL.mg,26);
@@ -275,13 +304,14 @@ function hurt(n){
 }
 function killEnt(e,byNova){
   const g=game,T=TYPES[e.type],p=proj(e.z),x=px(e.x,p.s),sc=p.s;
-  g.score+=T.pts;
+  if(e.type==='ally'){allyPenalty(e);return;}
+  g.streak++;g.score+=T.pts*mult();
   addParts(x,p.y,16,COL.mg,200*sc+40,0.7,3);addParts(x,p.y,6,'#fff',160*sc+30,0.5,2);
   if(Math.random()<0.5){g.coinsRun+=2;S.coins+=2;}
   if(!byNova)sfx('boom');
   e.dead=true;
   if(e.type==='bomb'&&!byNova){ // chain blast
-    g.ents.forEach(o=>{if(o!==e&&!o.dead&&Math.abs(o.z-e.z)<0.25&&Math.abs(o.x-e.x)<0.7){o.hp-=4;o.flash=0.1;if(o.hp<=0)killEnt(o,false);}});
+    g.ents.forEach(o=>{if(o!==e&&!o.dead&&o.type!=='ally'&&Math.abs(o.z-e.z)<0.25&&Math.abs(o.x-e.x)<0.7){o.hp-=4;o.flash=0.1;if(o.hp<=0)killEnt(o,false);}});
     shake=Math.max(shake,8);
   }
 }
@@ -292,18 +322,20 @@ function damageEnt(e,d){
 function damageBoss(d){
   const b=game.boss;if(!b||b.dead)return;
   b.hp-=d;b.flash=0.08;game.score+=Math.ceil(d);
+  const st=Math.min(3,Math.floor((1-Math.max(0,b.hp)/b.maxhp)*4));
+  if(b.hp>0&&st>(b.stage||0)){b.stage=st;const bx=VX+b.x*50,by=b.final?230:215;addParts(bx,by,22,COL.mg,340,1.1,6);addParts(bx,by,10,COL.gd,260,0.9,4);shake=Math.max(shake,16);sfx('boom');pop('ARMOR BROKEN',VX,330,COL.gd,20);}
   if(b.hp<=0){
     b.hp=0;b.dead=true;b.dieT=0;
     const p=proj(b.z);addParts(px(b.x,p.s),p.y,70,COL.mg,380,1.4,4);addParts(px(b.x,p.s),p.y,30,COL.gd,300,1.2,3);
     shake=26;flashA=0.9;flashC='#fff';sfx('nova');
-    game.ents.forEach(e=>{if(!e.dead&&!e.coin)killEnt(e,true);});
+    game.ents.forEach(e=>{if(!e.dead&&!e.coin&&e.type!=='ally')killEnt(e,true);});
   }
 }
 function fireNova(){
   const g=game;
   g.novaT=1.4;g.novaText=1.6;shake=24;flashA=1;flashC='#fff';sfx('nova');
   let n=0;
-  g.ents.forEach(e=>{if(!e.dead&&!e.coin){killEnt(e,true);n++;}});
+  g.ents.forEach(e=>{if(!e.dead&&!e.coin&&e.type!=='ally'){killEnt(e,true);n++;}});
   g.score+=n*20;
   if(g.boss&&!g.boss.dead)damageBoss((g.boss.maxhp*0.18)+25*S.pw.r);
   const bonus=40+n*8;g.coinsRun+=bonus;S.coins+=bonus;g.novaBonus=bonus;
@@ -312,7 +344,7 @@ function fireNova(){
 function usePush(){
   const g=game;if(S.push<1||g.state!=='play')return false;
   S.push=0;saveSoon();g.pushFx=0.9;g.pushRing=0;shake=18;flashA=0.7;flashC=COL.bl;sfx('push');
-  g.ents.forEach(e=>{if(e.dead||e.coin)return;e.z=1.02;e.hp-=3;e.flash=0.15;if(e.hp<=0)killEnt(e,true);});
+  g.ents.forEach(e=>{if(e.dead||e.coin||e.type==='ally')return;e.z=1.02;e.hp-=3;e.flash=0.15;if(e.hp<=0)killEnt(e,true);});
   if(g.boss&&!g.boss.dead){g.boss.z=Math.max(g.boss.z,0.62);g.boss.pushed=1.2;damageBoss(g.boss.maxhp*0.08+12);}
   return true;
 }
@@ -322,8 +354,11 @@ function endRun(won){
   if(won){
     g.state='won';g.wonT=0;sfx('win');
     const bonus=60+g.L*15;S.coins+=bonus;g.coinsRun+=bonus;g.bonus=bonus;
-    if(g.L===1&&!S.pushGiven&&S.push<1){S.push=1;S.pushGiven=true;g.gotPush=true;}
-    if(S.level===g.L&&S.level<MAXLV)S.level=g.L+1;
+    if(g.daily){S.dailyDay=today();S.coins+=200;g.coinsRun+=200;g.bonus+=200;}
+    else{
+      if(g.L===1&&!S.pushGiven&&S.push<1){g.gotPush=true;}
+      if(S.level===g.L&&S.level<MAXLV)S.level=g.L+1;
+    }
   }else{g.state='dead';sfx('lose');}
   try{if(YT&&YT.engagement&&YT.engagement.sendScore){const p=YT.engagement.sendScore({value:Math.floor(g.score)});if(p&&p.catch)p.catch(()=>{});}}catch(e){}
   saveNow();
@@ -331,11 +366,11 @@ function endRun(won){
 function setWeapon(w){
   const g=game;if(!g||g.state!=='play')return;
   if(w==='nova'){
-    if(S.rockets<1){showToast('No rockets. Get a rocket pack in the Shop.');sfx('no');return;}
+    if(S.rockets<1){buyPrompt('rocket');return;}
     if(g.novaT>0||g.weapon==='nova')return;
     g.prevWeapon=g.weapon;g.weapon='nova';g.novaCharge=0.55;sfx('ui');return;
   }
-  if(w==='lance'&&S.laser<=0){showToast('Laser is empty. Refill it in the Shop.');sfx('no');return;}
+  if(w==='lance'&&S.laser<=0){buyPrompt('laser');return;}
   if(g.weapon==='nova')return;
   if(g.weapon!==w){g.weapon=w;sfx('ui');}
 }
@@ -372,11 +407,11 @@ function update(dt){
     if(g.novaCharge<=0){S.rockets=Math.max(0,S.rockets-1);fireNova();g.weapon=(g.prevWeapon==='lance'&&S.laser<=0)?'pulse':g.prevWeapon;saveSoon();}
   }else if(wp==='pulse'){
     g.fireT-=dt;
-    const rate=0.145-0.004*(S.pw.p-1);
+    const rate=0.12-0.003*(S.pw.p-1);
     while(g.fireT<=0){
       g.fireT+=rate;g.fireSide^=1;
       const off=(g.fireSide?1:-1)*(70*SHIP_SCALE)/HW;
-      g.bul.push({x:g.px+off,z:0.02,vz:2.6,d:1+0.5*(S.pw.p-1)});sfx('shoot');
+      g.bul.push({x:g.px+off,z:0.02,vz:2.6,d:1.2+0.6*(S.pw.p-1)});sfx('shoot');
     }
   }else if(wp==='lance'){
     if(S.laser<=0){g.weapon='pulse';showToast('Laser is empty.');}
@@ -391,6 +426,10 @@ function update(dt){
   // bullets
   for(let i=g.bul.length-1;i>=0;i--){
     const b=g.bul[i];b.z+=b.vz*dt;
+    // light aim assist: bullets lean toward the nearest enemy ahead
+    let tgt=null;
+    for(const e of g.ents){if(e.dead||e.coin||e.type==='ally'||e.z<b.z-0.02||e.z>b.z+0.7)continue;if(Math.abs(e.x-b.x)<e.hw+0.35&&(!tgt||e.z<tgt.z))tgt=e;}
+    if(tgt)b.x+=clamp(tgt.x-b.x,-1.8*dt,1.8*dt);
     let hit=false;
     for(const e of g.ents){
       if(e.dead||e.coin)continue;
@@ -407,7 +446,8 @@ function update(dt){
     if(e.flash>0)e.flash-=dt;
     e.z-=v*e.vz*dt*(e.type==='drone'?1.05:1);
     e.ph+=dt*3;
-    if(e.type==='drone'){e.x+=clamp(g.px-e.x,-1,1)*0.55*dt*diff();}
+    if(e.type==='drone'){e.x+=clamp(g.px-e.x,-1,1)*0.5*dt*diff();}
+    if(e.type==='ally'){e.x=clamp(e.x+Math.sin(e.ph*0.5)*0.12*dt,-0.85,0.85);}
     if(e.type==='weaver'){e.x=clamp(e.x+Math.cos(e.ph)*0.9*dt,-0.85,0.85);}
     if(e.coin){ // coin pickup
       if(e.z<0.04&&Math.abs(e.x-g.px)<0.22){g.coinsRun+=3;S.coins+=3;g.score+=5;e.dead=true;sfx('coin');const p=proj(0);pop('+3',px(e.x,1),SHIP_BOTTOM-160,COL.gd,14);}
@@ -415,8 +455,14 @@ function update(dt){
       continue;
     }
     if(e.z<0.035&&e.z>-0.06&&Math.abs(e.x-g.px)<e.hw*0.85+0.1){
+      if(e.type==='ally'){allyPenalty(e);continue;}
       if(g.inv<=0){hurt(TYPES[e.type].dmg);}
       killEnt(e,true);continue;
+    }
+    if(e.z<-0.02&&!e.passed){
+      e.passed=true;
+      if(e.type==='ally'){g.saved++;S.coins+=20;g.coinsRun+=20;pop('SAVED +20',px(e.x,1),SHIP_BOTTOM-170,COL.bl,16);sfx('coin');}
+      else if(Math.abs(e.x-g.px)<e.hw+0.3){g.streak+=2;g.score+=25*mult();pop('NEAR MISS',px(g.px,1),SHIP_BOTTOM-190,COL.gd,14);sfx('coin');}
     }
     if(e.z<-0.12)e.dead=true;
   }
@@ -424,10 +470,13 @@ function update(dt){
   const dur=g.duration;
   if(g.t<dur){
     g.spawnT-=dt;
-    if(g.spawnT<=0){spawnWave();g.spawnT=Math.max(0.55,rnd(1.05,1.5)/diff()-g.t*0.003);}
+    if(g.spawnT<=0){spawnWave();g.spawnT=Math.max(0.5,rg(0.8,1.2)/diff()-g.t*0.002);}
+    // friendly blue ships
+    if(g.allyPlan){if(g.allyPlan.length&&g.t>=g.allyPlan[0]){if(spawnAlly())g.allyPlan.shift();else g.allyPlan[0]+=1;}}
+    else{g.allyT-=dt;if(g.allyT<=0){g.allyT=rg(12,18);if(g.ents.filter(e=>e.type==='ally'&&!e.dead).length<2)spawnAlly();}}
     g.coinT-=dt;
     if(g.coinT<=0){
-      g.coinT=rnd(5,8);const cx=rnd(-0.6,0.6);
+      g.coinT=rg(5,8);const cx=rg(-0.6,0.6);
       for(let i=0;i<5;i++){const e=spawnEnt('bomb',cx+Math.sin(i*0.9)*0.2,1.02+i*0.035,{coin:true,hw:0.12,hp:1});}
     }
   }else if(!g.bossSpawned){
@@ -456,12 +505,12 @@ function updateBoss(dt){
     b.atk-=dt;
     if(b.atk<=0){
       b.atk=(b.final?1.5:2.1)/Math.min(1.5,diff());
-      const e=spawnEnt('bomb',b.x+rnd(-0.5,0.5),0.6,{vz:1.0});e.hw=0.2;
+      const e=spawnEnt('bomb',b.x+rg(-0.5,0.5),0.6,{vz:1.0});e.hw=0.2;
     }
     b.atk2-=dt;
     if(b.atk2<=0){
       b.atk2=b.final?4.6:6.5;
-      const gap=rnd(-0.55,0.55);
+      const gap=rg(-0.55,0.55);
       [-0.78,-0.2,0.38].forEach(x=>{if(Math.abs(x+0.1-gap)>0.42)spawnEnt('barrier',x,0.6,{hw:0.3});});
       if(b.final)spawnEnt('drone',b.x,0.6);
     }
@@ -578,7 +627,7 @@ function drawEnt(e){
   }
   const sc=(2*e.hw*HW*p.s)/T0.w*1.08;
   const a=clamp(p.s*5,0.15,1);
-  const wcol=WORLDS[game.world].hint;
+  const wcol=e.type==='ally'?COL.bl:WORLDS[game.world].hint;
   // world hint under glow
   ctx.globalAlpha=0.35*a;ctx.fillStyle=wcol;ctx.beginPath();ctx.ellipse(x,p.y+10*p.s,e.hw*HW*p.s*0.9,8*p.s+1,0,0,6.283);ctx.fill();
   ctx.globalAlpha=a;
@@ -593,13 +642,31 @@ function drawBoss(g){
   const b=g.boss;if(!b)return;
   const u=clamp((1-b.z)/(1-0.56),0,1),sc0=b.final?0.8:0.78;
   const sc=lerp(0.12,1,Math.pow(u,0.6))*sc0;
-  const x=VX+b.x*50,y=lerp(HY,b.final?205:190,Math.pow(u,0.6));
-  const k=b.final?'finalboss':'boss';
+  const cy=b.final?262:250;
+  const x=VX+b.x*50,y=lerp(HY,cy,Math.pow(u,0.6));
+  const k=b.final?'finalboss':'boss',sp=SPR[k];
   if(b.dead){const f=clamp(b.dieT/1.5,0,1);ctx.globalAlpha=1-f;}
   const sh=b.dead?rnd(-4,4)*(1-clamp(b.dieT/1.5,0,1)):0;
   drawSpr(k,x+sh,y+sh,sc,1);
   ctx.globalAlpha=1;
+  // armor cracks grow as it takes damage
+  const st=b.stage||0;
+  if(st>0&&!b.dead){
+    ctx.save();ctx.strokeStyle='#ffe9a8';ctx.lineWidth=2;ctx.shadowColor=COL.gd;ctx.shadowBlur=8;ctx.lineCap='round';ctx.beginPath();
+    const C=[[[-70,-40],[-38,-6],[-62,30]],[[56,-48],[28,-12],[64,24]],[[2,-70],[14,-26],[-8,10]]];
+    for(let i=0;i<st&&i<3;i++){const c=C[i];ctx.moveTo(x+c[0][0]*sc*1.25,y+c[0][1]*sc*1.25);ctx.lineTo(x+c[1][0]*sc*1.25,y+c[1][1]*sc*1.25);ctx.lineTo(x+c[2][0]*sc*1.25,y+c[2][1]*sc*1.25);}
+    ctx.stroke();ctx.restore();
+  }
   if(b.flash>0){ctx.globalAlpha=0.28;ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(x,y,120*sc,0,6.283);ctx.fill();ctx.globalAlpha=1;}
+  // life bar right above the boss
+  if(!b.dead&&u>0.45&&sp){
+    const top=y+sp.oy*sc,bw=clamp(sp.w*sc*0.85,200,330),bx=x-bw/2,by=Math.max(80,top-26),bh=18;
+    rr(bx,by,bw,bh,9);ctx.fillStyle='#2a0d2e';ctx.fill();
+    rr(bx,by,Math.max(9,bw*clamp(b.hp/b.maxhp,0,1)),bh,9);const gr=ctx.createLinearGradient(bx,0,bx+bw,0);gr.addColorStop(0,COL.mg);gr.addColorStop(1,'#ff9df0');ctx.fillStyle=gr;ctx.shadowColor=COL.mg;ctx.shadowBlur=10;ctx.fill();ctx.shadowBlur=0;
+    rr(bx,by,bw,bh,9);ctx.strokeStyle='#ff9df0';ctx.lineWidth=1.5;ctx.stroke();
+    TT(b.name,bx+10,by+13,10,'#fff','left',1.5);
+    if(b.stars){let st2='';for(let i=0;i<b.stars;i++)st2+='\u2605';ctx.font='13px '+FU;ctx.textAlign='right';ctx.fillStyle=COL.gd;ctx.fillText(st2,bx+bw-8,by+14);}
+  }
 }
 function drawBullets(g){
   const gold=S.best>=20000;
@@ -652,7 +719,7 @@ function iconPulse(cx,cy,col){ctx.strokeStyle=col;ctx.lineWidth=2.6;ctx.lineCap=
 
 function drawHUD(g){
   drawLifeSegs(g,16,32,168);
-  coinPill(VW-16-118-52,14);
+  coinPill(VW-16-118-52,14);T(g.daily?'DAILY':'LEVEL '+g.L,VW-16-118-52+59,76,12,COL.dim,'center',700,3);
   // pause
   ctx.beginPath();ctx.arc(VW-16-22,36,22,0,6.283);ctx.fillStyle='rgba(5,4,15,0.7)';ctx.fill();ctx.strokeStyle='rgba(25,240,255,0.45)';ctx.lineWidth=1.5;ctx.stroke();
   ctx.fillStyle=COL.cy;ctx.fillRect(VW-16-22-6,28,4,16);ctx.fillRect(VW-16-22+2,28,4,16);
@@ -660,6 +727,7 @@ function drawHUD(g){
   const bossOn=g.boss&&!g.boss.dead;
   if(bossOn){T('SCORE',16,100,11,COL.dim,'left',700,3);TT(fmt(g.score),16,124,22,'#fff','left',1,'rgba(25,240,255,0.7)');}
   else{T('SCORE',VX,96,12,COL.dim,'center',700,3);TT(fmt(g.score),VX,128,34,'#fff','center',1,'rgba(25,240,255,0.7)');}
+  if(mult()>1)TT('STREAK x'+mult(),bossOn?16:VX,bossOn?144:152,12,COL.gd,bossOn?'left':'center',2,COL.gd);
   // elixirs
   roundBtn(42,596+26,'REVIVE',S.revive,COL.cy,'revive',()=>{showToast('Tap Revive on the game over screen.');sfx('no');});
   iconHeart(42,622,COL.cy);
@@ -668,6 +736,7 @@ function drawHUD(g){
   if(S.push>0){roundBtn(VW-42,500,'PUSH',S.push,COL.bl,'push',()=>{usePush();},true);iconPush(VW-42,500,'#bcd2ff');}
   // weapon bar
   const bx=16,by=736,bw=(VW-32-20)/3,bh=92,ws=['pulse','lance','nova'];
+  T('WEAPONS',16,729,11,COL.dim,'left',700,3);
   ws.forEach((w,i)=>{
     const x=bx+i*(bw+10),sel=g.weapon===w||(w==='pulse'&&g.weapon==='nova'&&g.prevWeapon==='pulse');
     const col=w==='nova'?COL.gd:COL.cy;
@@ -678,26 +747,27 @@ function drawHUD(g){
     if(w==='lance'){iconArrow(x+19,by+22,COL.cy);T('LASER',x+34,by+27,14,COL.tx,'left',700,1.5);rr(x+10,by+40,bw-20,10,5);ctx.fillStyle='#1b2a5e';ctx.fill();rr(x+10,by+40,(bw-20)*S.laser/100,10,5);ctx.fillStyle=COL.cy;ctx.fill();T(Math.round(S.laser)+'% ENERGY',x+10,by+82,12,COL.dim,'left',600,1.2);}
     if(w==='nova'){iconRocket(x+19,by+22,COL.gd,0.9);T('NOVA',x+34,by+27,14,COL.tx,'left',700,1.5);for(let k=0;k<3;k++){rr(x+10+k*((bw-20-8)/3+4),by+42,(bw-20-8)/3,10,3);ctx.fillStyle=k<S.rockets?COL.gd:'#1b2a5e';ctx.fill();}T(S.rockets+' LEFT',x+10,by+82,12,S.rockets?COL.gd:COL.dim,'left',600,1.2);}
     hit(x,by,bw,bh,()=>setWeapon(w));
+    if(w!=='pulse'){const cx=x+bw-16,cy=by+16;ctx.beginPath();ctx.arc(cx,cy,11,0,6.283);ctx.fillStyle='rgba(255,207,51,0.15)';ctx.fill();ctx.strokeStyle=COL.gd;ctx.lineWidth=1.8;ctx.stroke();ctx.strokeStyle=COL.gd;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(cx-5,cy);ctx.lineTo(cx+5,cy);ctx.moveTo(cx,cy-5);ctx.lineTo(cx,cy+5);ctx.stroke();hit(cx-18,cy-18,36,36,()=>buyPrompt(w==='lance'?'laser':'rocket'));}
   });
   // hints
-  if(g.helpT>0){ctx.globalAlpha=clamp(g.helpT,0,1);TT('DRAG TO STEER',VX,330,16,COL.gd,'center',3,COL.gd);T('Auto fire is on. Tap a weapon to switch.',VX,354,15,COL.dim,'center',600);ctx.globalAlpha=1;}
+  if(g.helpT>0&&g.state==='play'){ctx.globalAlpha=clamp(g.helpT,0,1);TT(inTouch?'DRAG TO STEER':'MOVE THE MOUSE TO STEER',VX,330,16,COL.gd,'center',3,COL.gd);T('Auto fire is on.',VX,354,15,COL.dim,'center',600);
+    TT('SWITCH WEAPONS HERE',VX,696,12,COL.cy,'center',3,COL.cy);ctx.fillStyle=COL.cy;ctx.beginPath();const ay=708+Math.sin(tNow*8)*4;ctx.moveTo(VX-9,ay);ctx.lineTo(VX+9,ay);ctx.lineTo(VX,ay+11);ctx.closePath();ctx.fill();ctx.globalAlpha=1;}
   if(g.world===2&&Math.abs(g.drift)>0){T(g.drift>0?'FLOOR SLIDING  >>':'<<  FLOOR SLIDING',VX,300,14,WORLDS[2].hint,'center',700,2);}
   // boss bar
 }
 
 /* ---------- screens ---------- */
-let menuPhase=0;
+let menuPhase=0,inTouch=true;
+function helpBtn(cx,cy){ctx.beginPath();ctx.arc(cx,cy,22,0,6.283);ctx.fillStyle='rgba(5,4,15,0.7)';ctx.fill();ctx.strokeStyle='rgba(255,207,51,0.6)';ctx.lineWidth=1.5;ctx.stroke();TT('?',cx,cy+7,20,COL.gd,'center',0);hit(cx-24,cy-24,48,48,()=>openInfo('help'));}
 function drawMenu(){
   drawTunnel(0,menuPhase,tNow);
-  coinPill(16,16);
+  coinPill(16,16);T('LEVEL '+S.level,75,76,12,COL.dim,'center',700,3);helpBtn(VW-38-56,38);
   // sound button
   ctx.beginPath();ctx.arc(VW-38,38,22,0,6.283);ctx.fillStyle='rgba(5,4,15,0.7)';ctx.fill();ctx.strokeStyle='rgba(25,240,255,0.45)';ctx.lineWidth=1.5;ctx.stroke();
   drawSpeaker(VW-38,38,soundOK());
   hit(VW-60,16,44,44,()=>{S.muted=!S.muted;applyAudio();saveSoon();});
   TT('GUNSHIP',VX,150,44,'#fff','center',3,'rgba(25,240,255,0.8)');
   TT('UNASA',VX,200,44,'#fff','center',3,'rgba(255,43,214,0.6)');
-  const w=WORLDS[Math.floor((S.level-1)/5)];
-  T('LEVEL '+S.level+'  '+w.name,VX,232,15,COL.dim,'center',700,3);
   // hero ship
   const sc=0.62,x=VX,ay=600-566*sc;
   const bob=Math.sin(tNow*2)*4;
@@ -705,8 +775,11 @@ function drawMenu(){
   drawSpr('ship_pulse',x-165*sc,ay+bob,sc);
   T('BEST RUN',VX-34,666,14,COL.dim,'center',600,2);TT(fmt(S.best),VX+46,667,14,'#fff','center',1);
   btn(24,690,VW-48,64,'START',{primary:true,size:22,font:FT,wt:800,ls:5},startGame);
-  btn(24,768,(VW-48-12)/2,52,'GARAGE',{size:16},()=>{screen='garage';sfx('ui');});
-  btn(24+(VW-48-12)/2+12,768,(VW-48-12)/2,52,'GET COINS',{size:16,col:'rgba(255,207,51,0.7)',tcol:COL.gd},()=>{screen='shop';sfx('ui');});
+  const bw3=(VW-48-24)/3,done=S.dailyDay===today();
+  btn(24,768,bw3,52,'GARAGE',{size:14,ls:1.5},()=>{screen='garage';sfx('ui');});
+  btn(24+bw3+12,768,bw3,52,done?'DONE':'',{size:14,ls:1.5,col:done?COL.ln:'rgba(255,43,214,0.8)',tcol:done?COL.dim:'#ffb3f0',disabled:done,onDis:()=>{showToast('Daily done. Come back tomorrow.');sfx('no');}},startDaily);
+  if(!done){T('DAILY',24+bw3+12+bw3/2,791,14,'#ffb3f0','center',700,1.5);T('+200 COINS',24+bw3+12+bw3/2,808,10,COL.gd,'center',700,1);}
+  btn(24+2*(bw3+12),768,bw3,52,'GET COINS',{size:14,ls:1,col:'rgba(255,207,51,0.7)',tcol:COL.gd},()=>{screen='shop';sfx('ui');});
 }
 function drawSpeaker(cx,cy,on){
   ctx.strokeStyle=COL.cy;ctx.lineWidth=2;ctx.lineJoin='round';ctx.lineCap='round';
@@ -725,6 +798,11 @@ async function startGame(){
   }catch(e){}
   busy=false;newRun();screen='play';
 }
+function startDaily(){
+  if(busy)return;
+  if(S.dailyDay===today()){showToast('Daily done. Come back tomorrow.');sfx('no');return;}
+  sfx('ui');initAudio();newRun(true);screen='play';
+}
 function backBtn(){
   ctx.beginPath();ctx.arc(38,42,22,0,6.283);ctx.fillStyle='rgba(5,4,15,0.7)';ctx.fill();ctx.strokeStyle='rgba(25,240,255,0.45)';ctx.lineWidth=1.5;ctx.stroke();
   ctx.strokeStyle=COL.cy;ctx.lineWidth=2.6;ctx.lineCap='round';ctx.lineJoin='round';ctx.beginPath();ctx.moveTo(42,33);ctx.lineTo(34,42);ctx.lineTo(42,51);ctx.stroke();
@@ -735,7 +813,7 @@ function panelBg(){
 }
 const UP=[{k:'p',name:'PULSE',cost:300,col:COL.cy,ic:iconPulse},{k:'l',name:'LASER',cost:600,col:COL.cy,ic:iconArrow},{k:'r',name:'ROCKET',cost:1200,col:COL.cy,ic:iconRocket}];
 function drawGarage(){
-  panelBg();backBtn();TT('GARAGE',VX,50,20,'#fff','center',4,'rgba(25,240,255,0.6)');coinPill(VW-16-118,20);
+  panelBg();backBtn();helpBtn(92,42);TT('GARAGE',VX,50,20,'#fff','center',4,'rgba(25,240,255,0.6)');coinPill(VW-16-118,20);
   rr(16,84,VW-32,210,18);ctx.fillStyle='#090720';ctx.fill();ctx.strokeStyle=COL.ln;ctx.lineWidth=2;ctx.stroke();
   ctx.save();rr(16,84,VW-32,210,18);ctx.clip();
   ctx.strokeStyle=WORLDS[0].grid;ctx.lineWidth=1.5;ctx.globalAlpha=0.5;
@@ -778,20 +856,31 @@ const ITEMS=[
   {id:'rocket',name:'ROCKET PACK x3',sub:'Screen clearing blasts. Equal to 6 ads.',price:600,ic:iconRocket,col:COL.cy},
   {id:'revive',name:'REVIVE ELIXIR',sub:'Come back once after a crash.',price:250,ic:iconHeart,col:COL.cy},
   {id:'boost',name:'BOOST ELIXIR',sub:'More life for one run.',price:200,ic:iconUp,col:COL.cy},
-  {id:'push',name:'PUSH',sub:'Blasts everything back. Carry 1 only.',price:1200,ic:iconPush,col:COL.bl,rare:true}
+  {id:'push',name:'PUSH',sub:'RARE. Save for big bosses. Carry 1 only.',price:1200,ic:iconPush,col:COL.bl,rare:true}
 ];
 function buyItem(it){
-  if(busy)return;
-  if(it.id==='push'&&S.push>=1){showToast('You already carry a Push. Only 1 at a time.');sfx('no');return;}
-  if(it.id==='laser'&&S.laser>=100){showToast('Laser is already full.');sfx('no');return;}
-  if(S.coins<it.price){showToast('Not enough coins. Watch an ad above.');sfx('no');return;}
+  if(busy)return false;
+  const inRun=screen==='play';
+  if(it.id==='push'&&S.push>=1){showToast('You already carry a Push. Only 1 at a time.');sfx('no');return false;}
+  if(it.id==='laser'&&S.laser>=100){showToast('Laser is already full.');sfx('no');return false;}
+  if(it.id==='rocket'&&S.rockets>=99){showToast('Rockets are full.');sfx('no');return false;}
+  if(S.coins<it.price){showToast(inRun?'Not enough coins. Grab gold to earn more.':'Not enough coins. Watch an ad above.');sfx('no');return false;}
   S.coins-=it.price;
   if(it.id==='laser')S.laser=100;else if(it.id==='rocket')S.rockets=Math.min(99,S.rockets+3);
   else if(it.id==='revive')S.revive++;else if(it.id==='boost')S.boost++;else if(it.id==='push')S.push=1;
-  saveNow();sfx('coin');showToast(it.name+' added');
+  saveNow();sfx('coin');showToast(it.name+' added');return true;
+}
+function buyPrompt(kind){
+  const g=game;if(!g||g.state!=='play')return;
+  const it=ITEMS.find(i=>i.id===kind);if(!it)return;sfx('ui');
+  g.state='pausedinfo';
+  modal={screen:'play',title:kind==='laser'?'LASER':'NOVA',rare:false,
+    lines:kind==='laser'?[S.laser<=0?'Laser energy is empty.':'Top up the laser.','Full tank for '+it.price+' coins. You have '+fmt(S.coins)+'.']:[S.rockets<1?'Out of rockets.':'Get more rockets.','3 Nova rockets for '+it.price+' coins. You have '+fmt(S.coins)+'.'],
+    buy:it,auto:true,after:()=>setWeapon(kind==='laser'?'lance':'nova'),
+    close:()=>{modal=null;if(game&&game.state==='pausedinfo')game.state='play';}};
 }
 function drawShop(){
-  panelBg();backBtn();TT('REFILL',VX,50,20,'#fff','center',4,'rgba(25,240,255,0.6)');coinPill(VW-16-118,20);
+  panelBg();backBtn();helpBtn(92,42);TT('REFILL',VX,50,20,'#fff','center',4,'rgba(25,240,255,0.6)');coinPill(VW-16-118,20);
   // ad card
   rr(16,84,VW-32,214,18);ctx.fillStyle=COL.pnl;ctx.fill();ctx.strokeStyle='rgba(255,207,51,0.55)';ctx.lineWidth=2;ctx.stroke();
   T('Ad rewards left today',32,118,16,'#fff','left',700,1);TT(String(adsLeft()),VW-32,122,28,COL.gd,'right',0,'rgba(255,207,51,0.5)');
@@ -822,16 +911,18 @@ function drawShop(){
   T('If an ad does not play, no coins are given.',VX,VH-20,13,COL.dim,'center',600);
 }
 const INFO={
+  help:{t:'HOW IT WORKS',a:['Shoot red ships. Grab gold. Spare blue.','WEAPONS: tap the bar at the bottom. Pulse never runs out. Laser and Nova use energy and rockets.','GARAGE: spend coins on power.','REFILL: watch an ad or buy more.','PUSH is rare. It blasts everything back. Save it for a big boss.']},
   revive:{t:'REVIVE ELIXIR',a:['Brings you back once after your life runs out.','Tap it on the game over screen. You keep your score.']},
   boost:{t:'BOOST ELIXIR',a:['Adds 2 life segments for the rest of one run.','Tap it during a run when you are low.']},
-  push:{t:'PUSH',rare:true,a:['Flashes blue and throws every enemy and boss back to the start line. They take damage on the way.','Best saved for a final boss. You can only carry 1 at a time. Beat level 1 for a free one.']},
+  push:{t:'PUSH',rare:true,a:['Flashes blue and throws every enemy and boss back to the start line. They take damage on the way.','RARE. Save it for a big boss. You can only carry 1 at a time. Beat level 1 for a free one.']},
   laser:{t:'LASER REFILL',a:['Fills the laser energy tank to full.','Equal to about 3 ads.']},
   rocket:{t:'ROCKET PACK x3',a:['Adds 3 Nova rockets. One rocket clears the whole screen.','Equal to about 6 ads.']}
 };
 function openInfo(k){
   const d=INFO[k];if(!d)return;sfx('ui');
+  const fromPause=!!(game&&screen==='play'&&game.state==='paused');
   if(game&&game.state==='play'){game.state='pausedinfo';}
-  modal={screen:screen,title:d.t,rare:!!d.rare,lines:d.a,buy:null,close:()=>{modal=null;if(game&&game.state==='pausedinfo')game.state='play';}};
+  modal={screen:screen,title:d.t,rare:!!d.rare,lines:d.a,buy:null,close:()=>{modal=null;if(game&&game.state==='pausedinfo')game.state='play';if(fromPause)modal={title:'PAUSED',custom:true,close:()=>{}};}};
   if((screen==='shop')&&(k==='push'||ITEMS.find(i=>i.id===k)))modal.buy=ITEMS.find(i=>i.id===k);
 }
 function wrapText(s,w,size,wt){
@@ -856,7 +947,7 @@ function drawModal(){
   if(m.buy){
     btn(x+16,by,(w-44)/2,48,'CLOSE',{size:14,col:COL.ln},()=>{sfx('ui');m.close();});
     const owned=m.buy.id==='push'&&S.push>=1,can=S.coins>=m.buy.price&&!owned;
-    btn(x+16+(w-44)/2+12,by,(w-44)/2,48,owned?'OWNED':'BUY '+fmt(m.buy.price),{size:14,font:FT,wt:800,ls:0.5,col:col,tcol:'#fff',fill:'rgba(58,123,255,0.12)',disabled:owned},()=>{buyItem(m.buy);});
+    btn(x+16+(w-44)/2+12,by,(w-44)/2,48,owned?'OWNED':'BUY '+fmt(m.buy.price),{size:14,font:FT,wt:800,ls:0.5,col:col,tcol:'#fff',fill:'rgba(58,123,255,0.12)',disabled:owned},()=>{if(buyItem(m.buy)&&m.auto){m.close();if(m.after)m.after();}});
   }else btn(x+16,by,w-32,48,'CLOSE',{size:15,primary:true,col},()=>{sfx('ui');m.close();});
 }
 function pauseGame(){
@@ -868,12 +959,13 @@ function drawPauseModal(){
   ctx.fillStyle='rgba(5,4,15,0.8)';ctx.fillRect(0,0,VW,VH);hit(0,0,VW,VH,()=>{});
   TT('PAUSED',VX,260,30,'#fff','center',4,'rgba(25,240,255,0.7)');
   btn(60,300,VW-120,60,'RESUME',{primary:true,size:20,font:FT,wt:800,ls:3},()=>{game.state='play';modal=null;sfx('ui');});
-  btn(60,376,VW-120,52,soundOK()?'SOUND ON':'SOUND OFF',{size:16},()=>{S.muted=!S.muted;applyAudio();saveSoon();});
-  btn(60,444,VW-120,52,'QUIT TO MENU',{size:16,col:'rgba(255,43,214,0.7)'},()=>{modal=null;game=null;screen='menu';sfx('ui');});
+  btn(60,376,VW-120,52,'HOW IT WORKS',{size:16,col:'rgba(255,207,51,0.7)',tcol:COL.gd},()=>openInfo('help'));
+  btn(60,444,VW-120,52,soundOK()?'SOUND ON':'SOUND OFF',{size:16},()=>{S.muted=!S.muted;applyAudio();saveSoon();});
+  btn(60,512,VW-120,52,'QUIT TO MENU',{size:16,col:'rgba(255,43,214,0.7)'},()=>{modal=null;game=null;screen='menu';sfx('ui');});
 }
 function useBoost(){
   const g=game;if(!g||g.state!=='play')return;
-  if(S.boost<1){showToast('No boost elixirs. Get one in the Shop.');sfx('no');return;}
+  if(S.boost<1){showToast('No boost elixirs left.');sfx('no');return;}
   if(g.life>=10){showToast('Life is already full.');sfx('no');return;}
   S.boost--;g.maxLife=10;g.life=Math.min(10,g.life+2);saveSoon();sfx('coin');pop('+2 LIFE',px(g.px,1),SHIP_BOTTOM-160,COL.cy,18);
 }
@@ -884,34 +976,66 @@ function doRevive(){
   g.ents.forEach(e=>{if(!e.dead&&!e.coin&&e.z<0.5)e.dead=true;});
   saveNow();sfx('win');flashA=0.6;flashC=COL.cy;
 }
-function nextLevel(){game=null;newRun();screen='play';}
+function claimPush(g,silent){
+  if(!g||!g.gotPush||g.pushClaimed)return;
+  g.pushClaimed=true;if(S.push<1)S.push=1;S.pushGiven=true;saveNow();
+  if(!silent){sfx('win');openInfo('push');}
+}
+function nextLevel(){const d=!!(game&&game.daily&&game.state==='dead');claimPush(game,true);game=null;newRun(d);screen='play';}
+function drawIntro(g){
+  ctx.fillStyle='rgba(5,4,15,0.86)';ctx.fillRect(0,0,VW,VH);
+  const x=24,w=VW-48,y=170,h=450;
+  rr(x,y,w,h,22);ctx.fillStyle=COL.pnl;ctx.fill();ctx.shadowColor=COL.cy;ctx.shadowBlur=22;ctx.strokeStyle=COL.cy;ctx.lineWidth=2.5;ctx.stroke();ctx.shadowBlur=0;
+  TT('LEVEL 1',VX,y+48,20,'#fff','center',4,'rgba(25,240,255,0.6)');
+  const rows=[['SHOOT RED.',COL.mg,0],['GRAB GOLD.',COL.gd,1],['SPARE BLUE.',COL.bl,2]];
+  rows.forEach((r,i)=>{
+    const ry=y+110+i*84;
+    rr(x+18,ry-34,w-36,68,16);ctx.fillStyle='rgba(5,4,15,0.6)';ctx.fill();ctx.strokeStyle=r[1];ctx.lineWidth=1.8;ctx.stroke();
+    if(r[2]===0)drawSpr('drone',x+66,ry,0.38);
+    else if(r[2]===1){ctx.shadowColor=COL.gd;ctx.shadowBlur=10;diamond(x+66,ry,40,COL.gd);ctx.shadowBlur=0;}
+    else drawSpr('ally',x+66,ry,0.52);
+    TT(r[0],x+112,ry+8,20,r[1]===COL.bl?'#bcd2ff':'#fff','left',2,r[1]);
+  });
+  T('Hitting blue costs coins and life.',VX,y+h-70,14,COL.dim,'center',600);
+  btn(x+20,y+h-56,w-40,44,'TAP TO START',{primary:true,size:15,font:FT,wt:800,ls:3},startIntro);
+  hit(0,0,VW,VH,startIntro);
+}
+function startIntro(){const g=game;if(!g||g.state!=='intro')return;S.seenIntro=true;saveSoon();g.state='play';sfx('ui');}
 function drawEndOverlay(g){
   const won=g.state==='won',a=clamp(g.wonT*2,0,1);
   if(g.wonT<0.9&&won)return;
   const f=won?clamp((g.wonT-0.9)*2,0,1):a;
   ctx.fillStyle='rgba(5,4,15,'+(0.78*f)+')';ctx.fillRect(0,0,VW,VH);ctx.globalAlpha=f;
   hit(0,0,VW,VH,()=>{});
-  TT(won?'LEVEL CLEAR':'SHIP DOWN',VX,200,32,won?COL.gd:COL.mg,'center',3,won?COL.gd:COL.mg);
-  T(won?'World '+(g.world+1)+'  Level '+g.L:'Level '+g.L,VX,232,15,COL.dim,'center',700,3);
+  TT(won?(g.daily?'DAILY CLEAR':'LEVEL CLEAR'):'SHIP DOWN',VX,200,32,won?COL.gd:COL.mg,'center',3,won?COL.gd:COL.mg);
+  T(g.daily?'DAILY RUN':'LEVEL '+g.L,VX,232,15,COL.dim,'center',700,3);
   T('SCORE',VX,300,13,COL.dim,'center',700,3);TT(fmt(g.score),VX,342,38,'#fff','center',1,'rgba(25,240,255,0.7)');
   T('COINS EARNED',VX,384,13,COL.dim,'center',700,3);diamond(VX-46,408,16,COL.gd);TT(fmt(g.coinsRun),VX-30,415,22,COL.gd,'left',0);
   if(g.score>=S.best&&g.score>0)T('NEW BEST',VX,448,15,COL.gd,'center',700,4);
   if(won&&g.gotPush){
-    rr(40,462,VW-80,56,14);ctx.fillStyle='rgba(58,123,255,0.14)';ctx.fill();ctx.strokeStyle=COL.bl;ctx.lineWidth=2;ctx.stroke();
-    iconPush(66,490,'#bcd2ff');TT('FREE PUSH EARNED',VX+10,486,13,'#bcd2ff','center',1.5);T('Rare. Save it for a final boss.',VX+10,506,13,COL.dim,'center',600);
+    const cl=g.pushClaimed,pu=cl?0:Math.sin(tNow*6)*0.5+0.5;
+    rr(40,462,VW-80,56,14);ctx.fillStyle='rgba(58,123,255,'+(0.14+0.12*pu)+')';ctx.fill();ctx.shadowColor=COL.bl;ctx.shadowBlur=cl?0:14;ctx.strokeStyle=COL.bl;ctx.lineWidth=2;ctx.stroke();ctx.shadowBlur=0;
+    iconPush(66,490,'#bcd2ff');
+    if(cl){TT('PUSH ADDED',VX+10,496,14,'#bcd2ff','center',1.5);}
+    else{
+      TT('FREE PUSH',VX+10,484,14,'#bcd2ff','center',1.5);T('TAP TO RECEIVE',VX+10,505,13,COL.gd,'center',700,2);
+      const ay=530+Math.sin(tNow*7)*3;ctx.fillStyle=COL.gd;ctx.beginPath();ctx.moveTo(VX,ay-8);ctx.lineTo(VX+9,ay+4);ctx.lineTo(VX-9,ay+4);ctx.closePath();ctx.fill();
+      hit(40,462,VW-80,56,()=>claimPush(g,false));
+    }
   }
   let y=548;
   if(won){
-    if(g.L<MAXLV)btn(40,y,VW-80,60,'NEXT LEVEL',{primary:true,size:20,font:FT,wt:800,ls:3},()=>{if(busy)return;nextLevel();});
-    else btn(40,y,VW-80,60,'PLAY AGAIN',{primary:true,size:20,font:FT,wt:800,ls:3},()=>{S.level=MAXLV;nextLevel();});
-    y+=76;
+    if(g.daily){T('+200 DAILY BONUS',VX,y+8,16,COL.gd,'center',700,2);y+=24;}
+    else if(g.L<MAXLV)btn(40,y,VW-80,60,'NEXT LEVEL',{primary:true,size:20,font:FT,wt:800,ls:3},()=>{if(busy)return;nextLevel();});
+    else btn(40,y,VW-80,60,'PLAY AGAIN',{primary:true,size:20,font:FT,wt:800,ls:3},()=>{if(busy)return;S.level=MAXLV;nextLevel();});
+    if(!g.daily)y+=76;
   }else{
     if(S.revive>0||S.coins>=250){
       btn(40,y,VW-80,56,S.revive>0?'REVIVE  ('+S.revive+')':'REVIVE  250',{size:17,col:COL.cy,primary:true,ls:3},doRevive);y+=70;
     }
     btn(40,y,VW-80,60,'RETRY',{primary:!(S.revive>0||S.coins>=250),size:19,font:FT,wt:800,ls:3,col:COL.cy},()=>{if(busy)return;nextLevel();});y+=76;
   }
-  btn(40,y,VW-80,52,'MENU',{size:16},()=>{game=null;screen='menu';sfx('ui');});
+  btn(40,y,VW-80,52,'MENU',{size:16},()=>{claimPush(g,true);game=null;screen='menu';sfx('ui');});
   ctx.globalAlpha=1;
 }
 function drawPlay(){
@@ -942,17 +1066,11 @@ function drawPlay(){
   if(flashA>0){ctx.globalAlpha=flashA;ctx.fillStyle=flashC;ctx.fillRect(0,0,VW,VH);ctx.globalAlpha=1;}
   if(g.hurtT>0){ctx.strokeStyle='rgba(255,43,214,'+(g.hurtT*1.4)+')';ctx.lineWidth=18;ctx.strokeRect(0,0,VW,VH);}
   if(g.state==='play'||g.state==='paused'||g.state==='pausedinfo')drawHUD(g);
+  else if(g.state==='intro'){drawHUD(g);uiList.length=0;drawIntro(g);}
   else if(g.state==='won'||g.state==='dead'){
     drawHUD(g);uiList.length=0;drawEndOverlay(g);
   }
-  if(g.boss&&!g.boss.dead){ // boss hp bar over hud
-    const b=g.boss,x=16,y=62,w=VW-32;rr(x,y,w,16,8);ctx.fillStyle='#2a0d2e';ctx.fill();
-    rr(x,y,Math.max(8,w*b.hp/b.maxhp),16,8);const gr=ctx.createLinearGradient(x,0,x+w,0);gr.addColorStop(0,COL.mg);gr.addColorStop(1,'#ff9df0');ctx.fillStyle=gr;ctx.shadowColor=COL.mg;ctx.shadowBlur=10;ctx.fill();ctx.shadowBlur=0;
-    rr(x,y,w,16,8);ctx.strokeStyle=COL.mg;ctx.lineWidth=1.2;ctx.stroke();
-    TT(b.name,x+10,y+12,10,'#fff','left',1.5);
-    if(b.stars){ctx.font='13px '+FU;ctx.textAlign='right';ctx.fillStyle=COL.gd;let st='';for(let i=0;i<b.stars;i++)st+='\u2605';ctx.fillText(st,x+w-8,y+13);}
-    if(g.boss.z<0.6)TT(b.final?'SHATTER THE ARMOR':'HIT THE CORE',VX,330,15,COL.gd,'center',4,COL.gd);
-  }
+  if(g.boss&&!g.boss.dead&&g.boss.z<0.6)TT(g.boss.final?'SHATTER THE ARMOR':'HIT THE CORE',VX,g.boss.final?452:410,15,COL.gd,'center',4,COL.gd);
 }
 function drawToast(){
   if(toast.life<=0)return;
@@ -960,7 +1078,7 @@ function drawToast(){
   const w=Math.min(VW-40,ctx.measureText(toast.t).width+40);ctx.font='700 15px '+FU;
   const tw=Math.min(VW-40,ctx.measureText(toast.t).width+36);
   const lines=wrapText(toast.t,VW-80,15,700);const h=lines.length*20+20;
-  const ty=screen==='play'?150:716;rr(VX-tw/2,ty,tw,h,14);ctx.fillStyle='rgba(11,10,36,0.95)';ctx.fill();ctx.strokeStyle=COL.cy;ctx.lineWidth=1.5;ctx.stroke();
+  const ty=screen==='play'?468:716;rr(VX-tw/2,ty,tw,h,14);ctx.fillStyle='rgba(11,10,36,0.95)';ctx.fill();ctx.strokeStyle=COL.cy;ctx.lineWidth=1.5;ctx.stroke();
   lines.forEach((l,i)=>T(l,VX,ty+27+i*20,15,'#fff','center',700));
   ctx.globalAlpha=1;
 }
@@ -982,7 +1100,7 @@ function uiHit(p){
   return null;
 }
 function onDown(e){
-  e.preventDefault();initAudio();
+  e.preventDefault();initAudio();inTouch=e.pointerType!=='mouse';
   try{cv.setPointerCapture(e.pointerId);}catch(_){}
   const p=toLogical(e);pointers.set(e.pointerId,p);
   const u=uiHit(p);
@@ -1000,6 +1118,7 @@ function onDown(e){
 }
 function onMove(e){
   e.preventDefault();
+  if(e.pointerType==='mouse'){inTouch=false;if(screen==='play'&&game&&game.state==='play'&&!modal&&!busy)steerTarget=(toLogical(e).x-VX)/HW;}
   if(!pointers.has(e.pointerId))return;
   const p=toLogical(e);pointers.set(e.pointerId,p);
   if(e.pointerId===steerId&&screen==='play'&&game&&game.state==='play')steerTarget=(p.x-VX)/HW;
@@ -1100,7 +1219,7 @@ loadSprites(async()=>{
   screen='menu';musicOn=true;
   loaded=true;
 });
-if(TEST){window.__T={get S(){return S},get game(){return game},set screen(v){screen=v},get screen(){return screen},newRun,setLevel(l){S.level=l},update,setWeapon,fireNova,usePush,hurt,spawnEnt,spawnBoss,damageBoss,endRun,get modal(){return modal},get busy(){return busy},startGame,watchRewarded,steer(v){steerTarget=v;},setCoins(n){S.coins=n;},get busyText(){return busyText}};}
+if(TEST){window.__T={get S(){return S},get game(){return game},set screen(v){screen=v},get screen(){return screen},newRun,setLevel(l){S.level=l},update,setWeapon,fireNova,usePush,hurt,spawnEnt,spawnBoss,damageBoss,endRun,get modal(){return modal},get busy(){return busy},startGame,startDaily,buyPrompt,claimPush,watchRewarded,steer(v){steerTarget=v;},setCoins(n){S.coins=n;},get busyText(){return busyText},get ac(){return AC?{s:AC.state,g:master.gain.value,ok:soundOK()}:null}};}
 })();
 
 </script>
